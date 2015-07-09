@@ -26,5 +26,15 @@ namespace GitFirstApp.Controllers
 
             return View();
         }
+        public ActionResult Portfolio()
+        {
+            ViewBag.Message = "Welcome.";
+            return View();
+        }
+        public ActionResult JavaScript()
+        {
+            ViewBag.Message = "JavaScript Exercises.";
+            return View();
+        }
     }
 }
