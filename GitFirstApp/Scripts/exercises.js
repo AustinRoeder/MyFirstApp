@@ -44,7 +44,7 @@ function fizzbuzz() {
         else
             ans += i + ", ";
     }
-    return ans;
+    $('#fizzbuzzResults').html(ans);
 }
 
 function perfectNumbers(x) {
@@ -70,7 +70,7 @@ function perfectNumberRun() {
         if (perfectNumbers(i))
             perNums.push(i);
     }
-    return perNums;
+    return perNums.join(', ');
 }
 
 function happyNums(n) {
@@ -104,7 +104,7 @@ function armstrong() {
             armArr.push(i);
         }
     }
-    return armArr;
+    return armArr.join(', ');
 }
 
 function longestWord() {
@@ -194,10 +194,10 @@ function wordFreqFinder(str) {
 }
 
 function findWord(search) {
-    var f = $("#textFile")[0];
+    var f = $("#findFile")[0];
     var r = new FileReader();
     r.onload = function (e) {
-        $("#specificWord").html(searchWord(search, r.result));
+        $("#findRes").html(searchWord(search, r.result));
     }
     r.readAsText(f.files[0]);
 }

@@ -24,11 +24,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="@(ViewBag.Title == "Home Page" ? "active" : "") ">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="@(ViewBag.Title == "About" ? "active" : "") ">@Html.ActionLink("About", "About", "Home")</li>
-                    <li class="@(ViewBag.Title == "Contact" ? "active" : "") ">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="@(ViewBag.Title == "Home Page" ? "active" : "") option2">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="@(ViewBag.Title == "About" ? "active" : "") option2">@Html.ActionLink("About", "About", "Home")</li>
                     <li>
-                        <a href="/Home/Index#works">Works</a>
+                        <a class="option2" href="/Home/Index#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a class="option2" href="/Home/Index#works">Portfolio</a>
                     </li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@

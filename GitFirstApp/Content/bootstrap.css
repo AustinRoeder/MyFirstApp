@@ -315,7 +315,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #e2e2e2;
 }
 
 input,
@@ -341,8 +341,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #2a6496;
-  text-decoration: underline;
+  color: #000000;
 }
 
 a:focus {
@@ -5640,7 +5639,6 @@ body.modal-open,
 
 .modal-dialog {
   z-index: 1050;
-  width: auto;
   padding: 10px;
   margin-right: auto;
   margin-left: auto;
@@ -5742,7 +5740,8 @@ body.modal-open,
   .modal-dialog {
     right: auto;
     left: 50%;
-    width: 900px;
+    width: 90%;
+    height: 75%;
     padding-top: 30px;
     padding-bottom: 30px;
   }

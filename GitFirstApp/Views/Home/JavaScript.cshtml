@@ -4,171 +4,156 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-10">
-            <div class="row text-center">                
-                <h2> My Portfolio</h2>
+            <div class="row text-center">
+                <h1 style="color:black">JavaScript Exercises</h1>
             </div>
-            <div class="row centered" style="margin-bottom:30px;">
-                <!--Max Of Five Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
+            <div class="row left">
+                <div class="col-xs-11">
+                    <!--Max Of Five Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
                         <a href="#" data-toggle="modal" data-target="#maxoffiveModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
+                            <h3 class="option">Max Of Five</h3>
                         </a>
                     </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Max Of Five</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="maxoffiveModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Max Of Five</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            Input five numbers with spaces between each,
-                                         
-                                            and this function will output the largest.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            Please type 5 numbers:
-                                            <input type="text" id="maxString" value="">
+                    <div class="modal fade" id="maxoffiveModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Max Of Five</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                Input five numbers with spaces between each,
+
+                                                and this function will output the largest.
+                                            </p>
                                             <br>
-                                            <input type="button" name="calcButton" value="Calculate" onclick="maxOfFive($('#maxString').val())">
-                                            <hr>
-                                            <h4 id="maxRes">Results will appear here.</h4>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <pre class="brush: js">
-function maxOfFive(str)
-{
-    var numArr = str.match(/\d+/g);
-    $("#maxRes").html(Math.max(numArr[0], numArr[1], numArr[2], numArr[3], numArr[4]));
-}
-                                        </pre>
+                                            <form>
+                                                Please type 5 numbers:
+                                                <input type="text" id="maxString" value="">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Calculate" onclick="maxOfFive($('#maxString').val())">
+                                                <hr>
+                                                <h4 id="maxRes">Results will appear here.</h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush: js">
+    function maxOfFive(str)
+    {
+        var numArr = str.match(/\d+/g);
+        $("#maxRes").html(Math.max(numArr[0],
+      numArr[1], numArr[2], numArr[3], numArr[4]));
+    }
+                                            </pre>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Max Of Five Modal End-->
-                <!--Operations Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
+                    <!--Operations Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
                         <a href="#" data-toggle="modal" data-target="#operationsModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
+                            <h3 class="option">Sum | Multiply</h3>
                         </a>
                     </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Sum | Multiply</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="operationsModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Sum | Multiply</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            Input numbers, seperating with a space, and
+                    <div class="modal fade" id="operationsModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Sum | Multiply</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                Input numbers, seperating with a space, and
 
-                                            these functions will return the Sum and Product
+                                                these functions will return the Sum and Product
 
-                                            of the given numbers.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            Please enter numbers:
-                                            <input type="text" id="operationsStr" value="">
+                                                of the given numbers.
+                                            </p>
                                             <br>
-                                            <input type="button" name="calcButton" value="Calculate" onclick="operations($('#operationsStr').val())">
-                                            <hr>                                         
-                                            <h4 id="sumRes">Sum will be shown here.</h4>
-                                            <h4 id="prodRes">Product will be shown here.</h4>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <pre class="brush: js">
+                                            <form>
+                                                Please enter numbers:
+                                                <input type="text" id="operationsStr" value="">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Calculate" onclick="operations($('#operationsStr').val())">
+                                                <hr>
+                                                <h4 id="sumRes">Sum will be shown here.</h4>
+                                                <h4 id="prodRes">Product will be shown here.</h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush: js">
 function operations(str) {
     var nums = str.match(/\d+/g);
     var s = 0;
     var p = 1;
     for (i = 0; i < nums.length; i++) {
-        s += nums[i];
+        s += Number(nums[i]);
         p *= nums[i];
     }                                            
     $("#sumRes").html(s);                                            
     $("#prodRes").html(p);
 }
-                                        </pre>
+                                            </pre>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Operations Modal End-->
-                <!--Factorial Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
+                    <!--Factorial Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
                         <a href="#" data-toggle="modal" data-target="#factorialModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
+                            <h3 class="option">Factorials</h3>
                         </a>
                     </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Factorials</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="factorialModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Factorial</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            Factorials are the product of a given number
-                                 
-                                            multiplied by all the preceding numbers down to 1
-                               
-                                            represented by the number followed by "!".
-                                       
-                                            EXAMPLE: "5!" would come out to
-                                  
-                                            (5 * 4 * 3 * 2 * 1) giving you 120.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            Please type a number:
-                                            <input type="number" id="factorialNum" value="0">
+                    <div class="modal fade" id="factorialModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Factorial</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                Factorials are the product of a given number
+
+                                                multiplied by all the preceding numbers down to 1
+
+                                                represented by the number followed by "!".
+
+                                                EXAMPLE: "5!" would come out to
+
+                                                (5 * 4 * 3 * 2 * 1) giving you 120.
+                                            </p>
                                             <br>
-                                            <input type="button" name="calcButton" value="Calculate" onclick="$('#factRes').html(factorial($('#factorialNum').val()))">
-                                            <hr>
-                                            <h4 id="factRes">Results will appear here.</h4>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <pre class="brush: js">
+                                            <form>
+                                                Please type a number:
+                                                <input type="number" id="factorialNum" value="0">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Calculate" onclick="$('#factRes').html(factorial($('#factorialNum').val()))">
+                                                <hr>
+                                                <h4 id="factRes">Results will appear here.</h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush: js">
 function factorial(num1) {
     var n = num1;
     if (n == 1) {
@@ -178,499 +163,572 @@ function factorial(num1) {
         return n * factorial(n - 1);
     }
 }
-</pre>
+    </pre>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Factorial Modal End-->
-                <!--Palindrome Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
+                    <!--Palindrome Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
                         <a href="#" data-toggle="modal" data-target="#palindromeModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
+                            <h3 class="option">Palindrome</h3>
                         </a>
                     </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Palindrome</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="palindromeModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Palindrome</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            A palindrome is a word or phrase that is spelled
-                                   
-                                            the same forward, as it is backward. 
-                                        
-                                            EXAMPLE: "Race car" and "Is Adam mad as I" are palindromes.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            Please enter a word or phrase:
-                                            <input type="text" id="palindromeStr" value="">
+                    <div class="modal fade" id="palindromeModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Palindrome</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                A palindrome is a word or phrase that is spelled
+
+                                                the same forward, as it is backward.
+
+                                                EXAMPLE: "Race car" and "Is Adam mad as I" are palindromes.
+                                            </p>
                                             <br>
-                                            <input type="button" name="calcButton" value="Calculate" onclick="palindrome($('#palindromeStr').val())">
-                                            <hr>
-                                            <h4 id="palinRes">Results returned here.</h4>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <pre class="brush: js">
+                                            <form>
+                                                Please enter a word or phrase:
+                                                <input type="text" id="palindromeStr" value="">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Calculate" onclick="palindrome($('#palindromeStr').val())">
+                                                <hr>
+                                                <h4 id="palinRes">Results returned here.</h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush: js">
 function palindrome(str) {
-    var text = str.replace(/[^0-9A-Za-z]*/g, '').toLowerCase();
-    var revStr = text.split('').reverse().join('');
-    $('#palinRes').html(revStr == text ? str + " is a palindrome." : str + " is not a palindrome.");
+    var text = str.replace(/[^0-9A-Za-z]*/g, '')
+                    .toLowerCase();
+    var revStr = text.split('').reverse()
+                        .join('');
+    $('#palinRes').html(revStr == text
+                    ? str + " is a palindrome."
+                    : str + " is not a palindrome.");
 }
-</pre>
+    </pre>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Palindrome Modal End-->
-            </div>
-            <div class="row centered" style="margin-bottom:30px;">
-                <!--FizzBuzz Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
+                    <!--FizzBuzz Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
                         <a href="#" data-toggle="modal" data-target="#fizzbuzzModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
+                            <h3 class="option">FizzBuzz</h3>
                         </a>
                     </div>
-                    <div class="selectable-desc text-center">
-                        <h3>FizzBuzz</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="fizzbuzzModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">FizzBuzz</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            This function iterates through the numbers 1 to 100, printing "Fizz" if the number is divisible by 3 and "Buzz" if divisible by 5. If divisble by both, it prints "FizzBuzz".
-                                        </p>
-                                        <br>
-                                        <form>
-                                            <p id="fizzbuzzResults"></p>
-                                            <br>
-                                            <input type="button" name="calcButton" value="FizzBuzz">
-                                        </form>
-                                    </div>
+                    <div class="modal fade" id="fizzbuzzModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">FizzBuzz</h2>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--FizzBuzz Modal End-->
-                <!--Perfect Numbers Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
-                        <a href="#" data-toggle="modal" data-target="#perfectModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
-                        </a>
-                    </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Perfect Numbers</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="perfectModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Perfect Numbers</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            A perfect number is a positive integer that is equal to the sum of its
-
-                                            proper positive divisors, that is, the sum of its positive divisors excluding the number itself.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            Please enter a number:
-                                            <input type="number" id="perfectNum" value="0">
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                This function iterates through the numbers 1 to 100, printing "Fizz" if the number is divisible by 3 and "Buzz" if divisible by 5. If divisble by both, it prints "FizzBuzz".
+                                            </p>
                                             <br>
-                                            <input type="button" name="calcButton" value="Calculate">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Perfect Numbers Modal End-->
-                <!--Happy Numbers Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
-                        <a href="#" data-toggle="modal" data-target="#happyModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
-                        </a>
-                    </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Happy Numbers</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="happyModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Happy Numbers</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            Happy numbers are those that can be reduced to
-
-                                            1 through the following process – Start with any positive integer, replace the number with the sum of the
-
-                                            squares of its digits, and repeat until the result is 1 or the result is an endless loop.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            Please type a number:
-                                            <input type="number" id="happyNum" value="0">
-                                            <br>
-                                            <p id="invalidNum" style="display:none">Please enter a positive number.</p>
-                                            <br>
-                                            <input type="button" name="calcButton" value="Calculate">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Happy Numbers Modal End-->
-                <!--Armstrong Numbers Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
-                        <a href="#" data-toggle="modal" data-target="#armstrongModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
-                        </a>
-                    </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Armstrong Numbers</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="armstrongModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Armstrong Numbers</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            An Armstrong number is an integer such that
-
-                                            the sum of the cubes of its digits is equal to the number itself.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            Please type a number:
-                                            <input type="number" id="armstrongNum" value="0">
-                                            <br>
-                                            <p id="invalidNum" style="display:none">Please enter a positive number.</p>
-                                            <br>
-                                            <input type="button" name="calcButton" value="Calculate">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Armstrong Numbers Modal End-->
-            </div>
-            <div class="row centered" style="margin-bottom:30px;">
-                <!--Longest Word Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
-                        <a href="#" data-toggle="modal" data-target="#longModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
-                        </a>
-                    </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Longest Word</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="longModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Longest Word</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            Finds and displays the longest word in a selected text file.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            <input type="file" id="file">
-                                            <input type="button" name="calcButton" value="Find Longest Word" onclick="longestWord()">
-                                            <hr />
-                                            <h4 id="longestRes"></h4>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <pre class="brush:js">
-function longestWord() {
-    var f = $("#file")[0];
-    var r = new FileReader();
-    r.onload = function (e) {
-        $('#longestRes').html(findLongestWord(r.result));
+                                            <form>
+                                                <input type="button" name="calcButton" value="FizzBuzz" onclick="fizzbuzz()">
+                                                <br>
+                                                <textarea style="margin: 0px; height: 137px; width: 300px;" id="fizzbuzzResults"></textarea>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush:js">
+function fizzbuzz() {
+    var ans = "";
+    for (var i = 1; i <= 100; i++) {
+        if (i % 15 == 0) {
+            ans += "FizzBuzz, ";
+        }
+        else if (i % 3 == 0) {
+            ans += "Fizz, ";
+        }
+        else if (i % 5 == 0) {
+            ans += "Buzz, ";
+        }
+        else
+            ans += i + ", ";
     }
-    r.readAsText(f.files[0]);
+    $('#fizzbuzzResults').html(ans);
 }
-function findLongestWord(str) {
-    var words = str.match(/\w[a-z]{0,}/gi);
-    var longest = words[0];
-    for (var x = 1; x < words.length; x++) {
-        if (longest.length < words[x].length) {
-            longest = words[x];
+    </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Perfect Numbers Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
+                        <a href="#" data-toggle="modal" data-target="#perfectModal">
+                            <h3 class="option">Perfect Numbers</h3>
+                        </a>
+                    </div>
+                    <div class="modal fade" id="perfectModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Perfect Numbers</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                A perfect number is a positive integer that is equal to the sum of its
+
+                                                proper positive divisors, that is, the sum of its positive divisors excluding the number itself.
+                                            </p>
+                                            <br>
+                                            <form>
+                                                Please enter a number:
+                                                <input type="number" id="perfectNum" value="0">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Calculate" onclick="$('#perfRes').html(perfectNumbers($('#perfectNum').val()) ? 'Entered number is prefect.':'Entered number is not perfect.')">
+                                                <input type="button" value="Generate Between 10,000" onclick="$('#firstperfRes').html(perfectNumberRun())">
+                                                <hr>
+                                                <h4 id="perfRes">Results will appear here.</h4>
+                                                <h4 id="firstperfRes"></h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush:js">
+function perfectNumbers(x) {
+    var divArr = new Array();
+    for (var i = 1; i <= x / 2; i++) {
+        if (x % i == 0) {
+            divArr.push(i);
         }
     }
-    return longest;
+    var sum = 0;
+    for (var i = 0; i < divArr.length; i++) {
+        sum += divArr[i];
+    }
+    if (sum == x) {
+        return true;
+    }
+    else
+        return false;
 }
-</pre>
+function perfectNumberRun() {
+    var perNums = new Array();
+    for (var i = 1; i <= 10000; i++) {
+        if (perfectNumbers(i))
+            perNums.push(i);
+    }
+    return perNums;
+}
+    </pre>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Longest Word Modal End-->
-                <!--Longer than _ Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
-                        <a href="#" data-toggle="modal" data-target="#filterModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
+                    <!--Happy Numbers Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
+                        <a href="#" data-toggle="modal" data-target="#happyModal">
+                            <h3 class="option">Happy Numbers</h3>
                         </a>
                     </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Filter Words</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="filterModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Filter Words</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>finds and displays all words that are longer than a given integer i
-                                        in a selected text file.
-                                         </p>
-                                        <br>
-                                        <form>
-                                            <input type="file" id="filterFile">
-                                            <input type="number" id="filterNum" value="0">
-                                            <input type="button" name="calcButton" value="Filter Words" onclick="filterWords()">
-                                            <hr>
-                                            <h4 id="filterRes"></h4>
-                                            <textarea id="filterDis" style="margin: 0px; height: 137px; width: 300px;"></textarea>
-                                        </form>
+                    <div class="modal fade" id="happyModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Happy Numbers</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                Happy numbers are those that can be reduced to
+
+                                                1 through the following process – Start with any positive integer, replace the number with the sum of the
+
+                                                squares of its digits, and repeat until the result is 1 or the result is an endless loop.
+                                            </p>
+                                            <br>
+                                            <form>
+                                                Please type a number:
+                                                <input type="number" id="happyNum" value="0">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Calculate" onclick="$('#happyRes').html(happyNums($('#happyNum').val()) ? 'Entered number is a happy number.' : 'Entered number is not a happy number.')">
+                                                <hr>
+                                                <h4 id="happyRes">Results will appear here.</h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush:js">
+function happyNums(n) {
+    var m, digit;
+    var cycle = [];
+    while (n != 1 &&
+                cycle[n] !== true) {
+        cycle[n] = true;
+        m = 0;
+        while (n > 0) {
+            digit = n % 10;
+            m += digit * digit;
+            n = (n - digit) / 10;
+        }
+        n = m;
+    }
+    return (n == 1);
+}
+    </pre>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-6">
-                                        <pre class="brush: js">
-function filterWords() {
-    var f = $("#filterFile")[0];
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Armstrong Numbers Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
+                        <a href="#" data-toggle="modal" data-target="#armstrongModal">
+                            <h3 class="option">Armstrong Numbers</h3>
+                        </a>
+                    </div>
+                    <div class="modal fade" id="armstrongModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Armstrong Numbers</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                An Armstrong number is an integer such that
+
+                                                the sum of the cubes of its digits is equal to the number itself.
+                                            </p>
+                                            <br>
+                                            <form>
+                                                Please type a number:
+                                                <input type="button" name="calcButton" value="Find 3-Digit Armstrongs" onclick="$('#armstrongRes').html(armstrong())">
+                                                <hr>
+                                                <h4 id="armstrongRes">Results will appear here.</h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush:js">
+function armstrong() {
+    var armArr = new Array();
+    var b, c;
+    for (var i = 100; i < 1000; i++) {
+        var ti = i, c = 0;
+        while (ti > 0) {
+            b = ti % 10;
+            c = c + (b * b * b);
+            ti = parseInt(ti / 10);
+        }
+        if (c == i) {
+            armArr.push(i);
+        }
+    }
+    return armArr;
+}
+    </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Longest Word Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
+                        <a href="#" data-toggle="modal" data-target="#longModal">
+                            <h3 class="option">Longest Word</h3>
+                        </a>
+                    </div>
+                    <div class="modal fade" id="longModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Longest Word</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                Finds and displays the longest word in a selected text file.
+                                            </p>
+                                            <br>
+                                            <form>
+                                                <input type="file" id="file">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Find Longest Word" onclick="longestWord()">
+                                                <hr />
+                                                <h4 id="longestRes"></h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush:js">
+    function longestWord() {
+        var f = $("#file")[0];
+        var r = new FileReader();
+        r.onload = function (e) {
+            $('#longestRes').html
+                (findLongestWord(r.result));
+        }
+        r.readAsText(f.files[0]);
+    }
+    function findLongestWord(str) {
+        var words = str.match(/\w[a-z]{0,}/gi);
+        var longest = words[0];
+        for (var x = 1; x < words.length; x++) {
+            if (longest.length < words[x].length) {
+                longest = words[x];
+            }
+        }
+        return longest;
+    }
+    </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Longer than _ Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
+                        <a href="#" data-toggle="modal" data-target="#filterModal">
+                            <h3 class="option">Filter Words</h3>
+                        </a>
+                    </div>
+                    <div class="modal fade" id="filterModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Filter Words</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                finds and displays all words that are longer than a given integer i
+                                                in a selected text file.
+                                            </p>
+                                            <br>
+                                            <form>
+                                                <input type="file" id="filterFile">
+                                                <input type="number" id="filterNum" value="0">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Filter Words" onclick="filterWords()">
+                                                <hr>
+                                                <h4 id="filterRes"></h4>
+                                                <textarea id="filterDis" style="margin: 0px; height: 137px; width: 300px;"></textarea>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush: js">
+    function filterWords() {
+        var f = $("#filterFile")[0];
+        var r = new FileReader();
+        r.onload = function (e) {
+            $('#filterRes').html
+                (filterLongWords($('#filterNum').val()
+                                    , r.result));
+        }
+        r.readAsText(f.files[0]);
+    }
+    function filterLongWords(num, str) {
+        var words = str.toLowerCase()
+                        .match(/\w[a-zA-Z']{0,}/gi);
+        var arr = [];
+        var count = 0;
+        for (var n = 0; n < words.length; n++) {
+            if (words[n].length > num) {
+                count++;
+                arr.push(words[n]);
+            }
+        }
+        arr = uniq(arr).sort().join(', ');
+        $('#filterDis').html(arr)
+        return count + " words longer than " + num;
+    }
+    </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Word Freq Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
+                        <a href="#" data-toggle="modal" data-target="#freqModal">
+                            <h3 class="option">Word Frequency</h3>
+                        </a>
+                    </div>
+                    <div class="modal fade" id="freqModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Word Frequency</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                displays a frequency listing of the words contained in a selected text
+
+                                                file. Order the words by frequency.
+                                            </p>
+                                            <br>
+                                            <form>
+                                                <input type="file" id="freqFile">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Find Frequency" onclick="wordFreq()">
+                                                <hr>
+                                                <textarea id="freqDis" style="margin: 0px; height: 137px; width: 300px;"></textarea>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush:js">
+    function wordFreq() {
+        var f = $("#freqFile")[0];
+        var r = new FileReader();
+        r.onload = function (e) {
+            $("#freqDis").html
+                (wordFreqFinder(r.result));
+        }
+        r.readAsText(f.files[0]);
+    }
+    function wordFreqFinder(str) {
+        var words = str.toLowerCase()
+                        .match(/\w[a-z]{0,}/gi);  
+        var hash = {};
+        for (var n in words) {            
+            if (hash[words[n]] == null) {  
+                (hash[words[n]]) = 1      
+            } else {
+                (hash[words[n]])++         
+            }
+        };
+        var wordsArranged = [];
+        for (var n in hash) {              
+            wordsArranged.push([n, hash[n]]);
+        };
+        wordsArranged.sort(function(a, b) { 
+            return b[1] - a[1]
+        });
+        var result = "Freq List: ";  
+        for (var n in wordsArranged) {
+            result = result + "\n" + wordsArranged[n];
+        };
+        return result;
+    }
+    </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Find Word Modal-->
+                    <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
+                        <a href="#" data-toggle="modal" data-target="#findModal">
+                            <h3 class="option">Find Frequency of a Word</h3>
+                        </a>
+                    </div>
+                    <div class="modal fade" id="findModal" tabindex="-1" role="dialog"
+                         aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                    <h2 class="modal-title" id="modalLabel">Find Frequency of a Word</h2>
+                                </div>
+                                <div class="modal-body col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <h3>Description:</h3>
+                                            <p>
+                                                returns the total number of occurrences of a given word in a selected
+
+                                                text file
+                                            </p>
+                                            <br>
+                                            <form>
+                                                <input type="text" id="findString" value="" placeholder="Please enter a word.">
+                                                <input type="file" id="findFile">
+                                                <br>
+                                                <input type="button" name="calcButton" value="Find Frequency" onclick="findWord($('#findString').val())">
+                                                <hr />
+                                                <h4 id="findRes"></h4>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <pre class="brush:js">
+function findWord(search) {
+    var f = $("#findFile")[0];
     var r = new FileReader();
     r.onload = function (e) {
-        $('#filterRes').html(filterLongWords($('#filterNum').val(), r.result));
+        $("#findRes").html(searchWord
+                           (search, r.result));
     }
     r.readAsText(f.files[0]);
 }
-function filterLongWords(num, str) {
-    var words = str.toLowerCase().match(/\w[a-zA-Z']{0,}/gi);
-    var arr = [];
+function searchWord(search, str) {
+    var words = str.toLowerCase()
+                    .match(/\w[a-z]{0,}/gi);
+    var searchS = search.toString()
+                        .toLowerCase();
     var count = 0;
     for (var n = 0; n < words.length; n++) {
-        if (words[n].length > num) {
+        if (searchS == words[n])
             count++;
-            arr.push(words[n]);
-        }
     }
-    arr = uniq(arr).sort().join(', ');
-    $('#filterDis').html(arr)
-    return count + " words longer than " + num;
+    return search + " appears " + count + " times."
 }
 </pre>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--Longer than _ Modal End-->
-                <!--Word Freq Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
-                        <a href="#" data-toggle="modal" data-target="#freqModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
-                        </a>
-                    </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Word Frequency</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="freqModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Word Frequency</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            displays a frequency listing of the words contained in a selected text
-
-                                            file. Order the words by frequency.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            <input type="file" id="freqFile">
-                                            <input type="button" name="calcButton" value="Find Frequency" onclick="wordFreq()">
-                                            <hr>
-                                            <textarea id="freqDis" style="margin: 0px; height: 137px; width: 300px;"></textarea>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <pre class="brush:js">
-function wordFreq() {
-    var f = $("#freqFile")[0];
-    var r = new FileReader();
-    r.onload = function (e) {
-        $("#freqDis").html(wordFreqFinder(r.result));
-    }
-    r.readAsText(f.files[0]);
-}
-function wordFreqFinder(str) {
-    var words = str.toLowerCase().match(/\w[a-z]{0,}/gi);  
-    var hash = {};
-    for (var n in words) {            
-        if (hash[words[n]] == null) {  
-            (hash[words[n]]) = 1      
-        } else {
-            (hash[words[n]])++         
-        }
-    };
-    var wordsArranged = [];
-    for (var n in hash) {              
-        wordsArranged.push([n, hash[n]]);
-    };
-    wordsArranged.sort(function(a, b) { 
-        return b[1] - a[1]
-    });
-    var result = "Freq List: ";  
-    for (var n in wordsArranged) {
-        result = result + "\n" + wordsArranged[n];
-    };
-    return result;
-}
-</pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Happy Numbers Modal End-->
-                <!--Armstrong Numbers Modal-->
-                <div class="selectable" style="display: inline-block; opacity: 1; bottom: 120px;">
-                    <div class="selectable-preview">
-                        <a href="#" data-toggle="modal" data-target="#armstrongModal">
-                            <img src="~/img/javascriptFileImage.png" style="height:165px;width:165px;" />
-                        </a>
-                    </div>
-                    <div class="selectable-desc text-center">
-                        <h3>Armstrong Numbers</h3>
-                    </div>
-                </div>
-                <div class="modal fade" id="armstrongModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                                <h2 class="modal-title" id="modalLabel">Armstrong Numbers</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Description:</h3>
-                                        <p>
-                                            An Armstrong number is an integer such that
-
-                                            the sum of the cubes of its digits is equal to the number itself.
-                                        </p>
-                                        <br>
-                                        <form>
-                                            Please type a number:
-                                            <input type="number" id="armstrongNum" value="0">
-                                            <br>
-                                            <p id="invalidNum" style="display:none">Please enter a positive number.</p>
-                                            <br>
-                                            <input type="button" name="calcButton" value="Calculate">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Armstrong Numbers Modal End-->
             </div>
         </div>
         <div class="col-xs-2">
-            <h4><u>Jump To Other Portfolio Sections</u></h4>
+            <h4 style="color:black; border-bottom: 2px solid black"><i>Jump To Other Portfolio Sections</i></h4>
         </div>
     </div>
 </div>
