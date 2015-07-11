@@ -242,6 +242,7 @@ h3{
 /* Gallery */
 .gallery {
 	margin-top: 30px;
+    left: 40px;
 }
 
 .gallery img:hover {
