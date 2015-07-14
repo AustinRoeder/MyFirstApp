@@ -193,15 +193,27 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	color: #ffffff
 }
-
-#aboutwrap {	
-	background: url(../img/lake.jpg) no-repeat center top;
-	margin-top: -70px;
-	padding-top: 250px;
-	text-align:center;
-	background-position: center center;
-	min-height: 687px;
-	width: 100%;
+#aboutwrap{
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+    min-height: 687px;
+    padding-top: 121px;
+    margin-top: -70px;
+}
+#aboutwrap::before {	
+	content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.4;
+    background-image: url('../img/lake.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
 	
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -212,6 +224,11 @@ h1, h2, h3, h4, h5, h6 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+#aboutwrap h1,h4{
+    color: #000000;
+    z-index: 2;
+    position: relative;
 }
 
 .selectable{
@@ -232,17 +249,10 @@ h3{
 }
 
 .option:hover{
-    transform: translate(0px,-10px);
     color:black;
 }
 .option2:hover{
     transform:scale(1.3);
-}
-.wrapper {
-    background-color: black;
-    opacity: .6;
-    margin-left: 40px;
-    margin-right: 40px;
 }
 
 /* Gallery */

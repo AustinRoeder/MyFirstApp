@@ -1,10 +1,10 @@
 ﻿function maxOfFive(str) {
-    var numArr = str.match(/\d+/g);
+    var numArr = str.match(/-?\d+/g);
     $("#maxRes").html("Largest: "+Math.max(numArr[0], numArr[1], numArr[2], numArr[3], numArr[4]));
 }
 
 function operations(str) {
-    var nums = str.match(/\d+/g);
+    var nums = str.match(/-?\d+/g);
     var s = 0;
     var p = 1;
     for (i = 0; i < nums.length; i++) {
@@ -116,7 +116,7 @@ function longestWord() {
     r.readAsText(f.files[0]);
 }
 function findLongestWord(str) {
-    var words = str.match(/\w[a-z]{0,}/gi);
+    var words = str.match(/\w[a-zA-Z'-]{0,}/gi);
     var longest = words[0];
     for (var x = 1; x < words.length; x++) {
         if (longest.length < words[x].length) {
@@ -135,7 +135,7 @@ function filterWords() {
     r.readAsText(f.files[0]);
 }
 function filterLongWords(num, str) {
-    var words = str.toLowerCase().match(/\w[a-zA-Z']{0,}/gi);
+    var words = str.toLowerCase().match(/\w[a-zA-Z'-]{0,}/gi);
     var arr = [];
     var count = 0;
     for (var n = 0; n < words.length; n++) {
@@ -202,7 +202,7 @@ function findWord(search) {
     r.readAsText(f.files[0]);
 }
 function searchWord(search, str) {
-    var words = str.toLowerCase().match(/\w[a-z]{0,}/gi);
+    var words = str.toLowerCase().match(/\w[a-z-]{0,}/gi);
     var searchS = search.toString().toLowerCase();
     var count = 0;
     for (var n = 0; n < words.length; n++) {
