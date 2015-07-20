@@ -5574,7 +5574,7 @@ a.list-group-item:focus {
   font-size: 21px;
   font-weight: bold;
   line-height: 1;
-  color: #6ad43f;
+  color: #333333;
   text-shadow: 0 1px 0 #ffffff;
   opacity: 0.6;
   filter: alpha(opacity=60);
@@ -5585,8 +5585,6 @@ a.list-group-item:focus {
   color: #000000;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
 }
 
 button.close {

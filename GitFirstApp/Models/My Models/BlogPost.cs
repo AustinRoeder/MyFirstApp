@@ -15,8 +15,8 @@ namespace GitFirstApp.Models.My_Models
         }
 
         public int ID { get; set; }
-        public DateTime Created { get; set; }
-        public Nullable<DateTime> Updated { get; set; }
+        public DateTimeOffset Created { get; set; }
+        public Nullable<DateTimeOffset> Updated { get; set; }
         public string Title { get; set; }
         public string Slug { get; set; }
         [AllowHtml]

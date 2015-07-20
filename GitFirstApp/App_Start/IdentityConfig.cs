@@ -11,6 +11,10 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using GitFirstApp.Models;
+using System.Configuration;
+using SendGrid;
+using System.Net.Mail;
+using System.Net;
 
 namespace GitFirstApp
 {
@@ -19,6 +23,19 @@ namespace GitFirstApp
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+            var username = ConfigurationManager.AppSettings["SendGridUserName"];
+            var password = ConfigurationManager.AppSettings["SendGridPassword"];
+            var from = ConfigurationManager.AppSettings["FromEmail"];
+
+            SendGridMessage myMessage = new SendGridMessage();
+            myMessage.AddTo(message.Destination);
+            myMessage.From = new MailAddress(from);
+            myMessage.Subject = message.Subject;
+            myMessage.Text = message.Body;
+            myMessage.Html = message.Body;
+            var credentials = new NetworkCredential(username, password);
+            var transportWeb = new Web(credentials);
+            transportWeb.DeliverAsync(myMessage);
             return Task.FromResult(0);
         }
     }
@@ -54,7 +71,7 @@ namespace GitFirstApp
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = false,
                 RequireDigit = true,
                 RequireLowercase = true,
                 RequireUppercase = true,

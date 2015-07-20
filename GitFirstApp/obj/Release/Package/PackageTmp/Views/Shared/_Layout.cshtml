@@ -6,6 +6,7 @@
     <title>Austin Roeder</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+   
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Content/SyntaxHighlighter/shCore.css" rel="stylesheet" />
@@ -21,20 +22,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h4 style="color:white; text-shadow: 1px 1px 1px black;">Austin Roeder</h4>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="@(ViewBag.Title == "Home Page" ? "active" : "") option2">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="@(ViewBag.Title == "About" ? "active" : "") option2">@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="option2">
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li class="option2">
+                        @Html.ActionLink("About", "About", "Home")
+                    </li>
+                    <li class="option2">
+                        @Html.ActionLink("Blog","Index","BlogPosts")
+                    </li>
                     <li>
                         <a class="option2" href="/Home/Index#contact">Contact</a>
                     </li>
                     <li>
                         <a class="option2" href="/Home/Index#works">Portfolio</a>
                     </li>
+                    <li>
+                        @Html.Partial("_LoginPartial")
+                    </li>
                 </ul>
-                @*@Html.Partial("_LoginPartial")*@
             </div>
         </div>
     </div>
@@ -42,6 +51,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.dotdotdot.js"></script>
     <script src="~/Scripts/exercises.js"></script>
     @RenderSection("scripts", required: false)
 </body>

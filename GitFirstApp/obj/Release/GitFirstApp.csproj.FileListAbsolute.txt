@@ -53,3 +53,6 @@ C:\Users\Austin\Documents\GitHub\MyFirstApp\GitFirstApp\bin\Microsoft.Owin.Secur
 C:\Users\Austin\Documents\GitHub\MyFirstApp\GitFirstApp\obj\Release\GitFirstApp.csprojResolveAssemblyReference.cache
 C:\Users\Austin\Documents\GitHub\MyFirstApp\GitFirstApp\obj\Release\GitFirstApp.dll
 C:\Users\Austin\Documents\GitHub\MyFirstApp\GitFirstApp\obj\Release\GitFirstApp.pdb
+C:\Users\Austin\Documents\GitHub\MyFirstApp\GitFirstApp\bin\SendGrid.SmtpApi.dll
+C:\Users\Austin\Documents\GitHub\MyFirstApp\GitFirstApp\bin\SendGridMail.dll
+C:\Users\Austin\Documents\GitHub\MyFirstApp\GitFirstApp\bin\Owin.Security.Providers.dll

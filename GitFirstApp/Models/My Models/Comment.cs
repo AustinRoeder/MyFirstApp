@@ -11,8 +11,8 @@ namespace GitFirstApp.Models.My_Models
         public int PostID { get; set; }
         public string AuthorID { get; set; }
         public string Body { get; set; }
-        public DateTime Created { get; set; }
-        public Nullable<DateTime> Updated { get; set; }
+        public DateTimeOffset Created { get; set; }
+        public Nullable<DateTimeOffset> Updated { get; set; }
         public string UpdateReason { get; set; }
 
         public virtual ApplicationUser Author { get; set; }

@@ -24,6 +24,10 @@ namespace GitFirstApp.Migrations
             {
                 roleManager.Create(new IdentityRole { Name = "Admin" });
             }
+            if (!context.Roles.Any(r => r.Name == "Moderator"))
+            {
+                roleManager.Create(new IdentityRole { Name = "Moderator" });
+            }
 
             var userManager = new UserManager<ApplicationUser>(
                 new UserStore<ApplicationUser>(context));
@@ -36,9 +40,23 @@ namespace GitFirstApp.Migrations
                     Email = "austinjroeder@gmail.com",
                     FirstName = "Austin",
                     LastName = "Roeder",
-                    DisplayName = "Austin"
+                    DisplayName = "Austin",
                 }, "Purdue96!");
             }
+            if (!context.Users.Any(u => u.Email == "moderator@coderfoundry.com"))
+            {
+                userManager.Create(new ApplicationUser
+                {
+                    UserName = "moderator@coderfoundry.com",
+                    Email = "moderator@coderfoundry.com",
+                    FirstName = "Coder",
+                    LastName = "Foundry",
+                    DisplayName = "CFoundry",
+                }, "Password1!");
+            }
+            var modID = userManager.FindByEmail("moderator@coderfoundry.com").Id;
+            userManager.AddToRole(modID, "Moderator");
+                
             var userID = userManager.FindByEmail("austinjroeder@gmail.com").Id;
             userManager.AddToRole(userID, "Admin");
         }

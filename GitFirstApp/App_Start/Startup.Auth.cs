@@ -2,10 +2,12 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using Owin.Security.Providers.LinkedIn;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using GitFirstApp.Models;
+using System.Configuration;
 
 namespace GitFirstApp
 {
@@ -54,15 +56,19 @@ namespace GitFirstApp
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //app.UseLinkedInAuthentication(
+            //    ConfigurationManager.AppSettings["LinkedInId"], 
+            //    ConfigurationManager.AppSettings["LinkedInSecret"]);
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseFacebookAuthentication(
+               appId: ConfigurationManager.AppSettings["FacebookId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookId"]);
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = ConfigurationManager.AppSettings["GoogleId"],
+                ClientSecret = ConfigurationManager.AppSettings["GoogleId"]
+            });
         }
     }
 }

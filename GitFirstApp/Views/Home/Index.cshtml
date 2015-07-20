@@ -79,7 +79,66 @@
                     <!--Gmail account setup-->
                     <img src="~/img/gmail.png" style="height: 64px; width: 64px;" />
                 </p>
-                <p><a class="btn btn-default" href="javascript:alert('Please wait while we setup this service.')">E-Mail Me &raquo;</a></p>
+                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#mailModal">E-Mail Me &raquo;</a></p>
+            </div>
+            <!--Mail Modal-->
+            <div class="modal fade" id="mailModal" tabindex="-1" role="dialog"
+                 aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                            <h2 class="modal-title" id="modalLabel">Send an Email</h2>
+                        </div>
+                        <div class="modal-body col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="row text-center">
+                                        <h4>Address</h4>
+                                        <p>1231 Shields Road Suite 5</p>
+                                        <p>Kernersville, NC 27284</p>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col-xs-6">
+                                            <h4>Phone</h4>
+                                            <p>678.756.6546</p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <h4>Email</h4>
+                                            <a href="mailto:austinjroeder@gmail.com">austinjroeder@gmail.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <form action="@Url.Action("Index","Home")" method="post" name="contactMe">
+                                        @Html.AntiForgeryToken()
+                                        <div class="row text-left">
+                                            <div class="col-xs-12">
+                                                <input name="Name" placeholder="Your Name*" type="text" style="width:auto; margin-bottom: 10px;" />
+                                            </div>
+                                        </div>
+                                        <div class="row text-left">
+                                            <div class="col-xs-12">
+                                                <input name="Email" placeholder="Your Email*" type="text" style="width:auto;margin-bottom: 10px;" />
+                                            </div>
+                                        </div>
+                                        <div class="row text-left">
+                                            <div class="col-xs-12">
+                                                <input name="Subject" placeholder="Subject*" type="text" style="width:auto;margin-bottom: 10px;" />
+                                            </div>
+                                        </div>
+                                        <div class="row text-left">
+                                            <div class="col-xs-12">
+                                                <textarea name="Message" placeholder="Message*" style="width: auto;" rows="4"></textarea>
+                                                <button type="submit" style="margin-left: 10px;"><p>Send Email &raquo;</p></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

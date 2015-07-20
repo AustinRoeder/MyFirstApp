@@ -11,6 +11,7 @@ using GitFirstApp.Models;
 namespace GitFirstApp.Controllers
 {
     [Authorize]
+    [RequireHttps]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

@@ -8,15 +8,28 @@ using System.Web;
 using System.Web.Mvc;
 using GitFirstApp.Models;
 using GitFirstApp.Models.My_Models;
+using System.Web.UI;
 
 namespace GitFirstApp.Controllers
 {
+
+    [RequireHttps]
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
+        {
+            var pagesize = 3;
+            var skip = page * pagesize - pagesize;
+            ViewBag.ModelCount = db.Posts.Count();
+
+            return View(db.Posts.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
+        }
+       
+        [Authorize(Roles="Admin")]
+        public ActionResult AdminsIndex()
         {
             return View(db.Posts.ToList());
         }
@@ -37,6 +50,7 @@ namespace GitFirstApp.Controllers
         }
 
         // GET: BlogPosts/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -51,15 +65,34 @@ namespace GitFirstApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Posts.Add(blogPost);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var slug = StringUtilities.UrlFriendly(blogPost.Title);
+
+                if (String.IsNullOrWhiteSpace(slug))
+                {
+                    ModelState.AddModelError("Title", "Invalid title.");
+                    return View(blogPost);
+                }
+                if (db.Posts.Any(p => p.Slug == slug))
+                {
+                    ModelState.AddModelError("Title", "The title must be unique.");
+                    return View(blogPost);
+                }
+                else
+                {
+                    blogPost.Created = DateTimeOffset.Now;
+                    blogPost.Slug = slug;
+
+                    db.Posts.Add(blogPost);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(blogPost);
         }
 
-        // GET: BlogPosts/Edit/5
+        // GET: BlogPosts/Edit/5 
+        [Authorize(Roles="Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,18 +112,23 @@ namespace GitFirstApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost)
+        public ActionResult Edit([Bind(Include = "ID,Title,Updated,Body,MediaURL")] BlogPost blogPost)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(blogPost).State = EntityState.Modified;
+                db.Posts.Attach(blogPost);
+                db.Entry(blogPost).Property("Body").IsModified = true;
+                blogPost.Updated = DateTimeOffset.Now;
+                db.Entry(blogPost).Property("Updated").IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
             return View(blogPost);
         }
 
         // GET: BlogPosts/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
