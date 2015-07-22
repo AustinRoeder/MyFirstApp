@@ -42,4 +42,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 GitFirstApp/Web.config
-*\Web.config
+GitFirstApp/obj/Release/CSAutoParameterize/original/Web.config
+GitFirstApp/obj/Release/InsertEFCodeFirstDeploy/original/Web.config
+GitFirstApp/obj/Release/Package/PackageTmp/Web.config
+GitFirstApp/obj/Release/TransformWebConfig/original/Web.config
+GitFirstApp/obj/Release/CSAutoParameterize/transformed/Web.config
+GitFirstApp/obj/Release/InsertEFCodeFirstDeploy/transformed/Web.config
+GitFirstApp/obj/Release/TransformWebConfig/transformed/Web.config
