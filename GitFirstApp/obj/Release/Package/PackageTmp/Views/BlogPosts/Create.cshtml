@@ -9,7 +9,6 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
         <h4>BlogPost</h4>
         <hr />
@@ -26,7 +25,6 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2"})
             <div class="col-md-10">
-
             </div>
         </div>
 
