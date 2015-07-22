@@ -31,9 +31,22 @@
                     <li class="option2">
                         @Html.ActionLink("About", "About", "Home")
                     </li>
-                    <li class="option2">
-                        @Html.ActionLink("Blog","Index","BlogPosts")
-                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="option2 dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog &or;</a>
+                            <ul class="dropdown-menu" style="right: -40px; min-width: 0px;">
+                                <li><a href="/BlogPosts/Index">Visitor's View</a></li>
+                                <li><a href="/BlogPosts/AdminsIndex">Admin's View</a></li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="option2">
+                            @Html.ActionLink("Blog", "Index", "BlogPosts")
+                        </li>
+                    }
                     <li>
                         <a class="option2" href="/Home/Index#contact">Contact</a>
                     </li>
@@ -53,6 +66,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/jquery.dotdotdot.js"></script>
     <script src="~/Scripts/exercises.js"></script>
+    <script src="~/Scripts/Functions.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

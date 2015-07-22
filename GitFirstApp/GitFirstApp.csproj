@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -184,6 +186,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogPostsController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -263,6 +266,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\DotDotDotWorks.js" />
     <Content Include="Scripts\exercises.js" />
+    <Content Include="Scripts\Functions.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
@@ -274,6 +278,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\ModalScripts.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
@@ -518,6 +523,7 @@
     <Content Include="Views\BlogPosts\Index.cshtml" />
     <Content Include="Views\Account\ResendEmailConfirmation.cshtml" />
     <Content Include="Views\Account\ConfirmationSent.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -554,6 +560,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

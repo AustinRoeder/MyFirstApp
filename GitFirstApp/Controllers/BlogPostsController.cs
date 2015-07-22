@@ -19,10 +19,14 @@ namespace GitFirstApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(string search, int? page)
         {
             var pagesize = 3;
-            var skip = page * pagesize - pagesize;
+            var skip = (page ?? 1) * pagesize - pagesize;
+            if (search != null)
+            {
+                return View(db.Posts.Where(p => p.Title.Contains(search) || p.Slug.Contains(search) || p.Body.Contains(search) || p.Comments.Any(c => c.Body.Contains(search))).OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
+            }
             ViewBag.ModelCount = db.Posts.Count();
 
             return View(db.Posts.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
@@ -34,14 +38,14 @@ namespace GitFirstApp.Controllers
             return View(db.Posts.ToList());
         }
 
-        // GET: BlogPosts/Details/5
-        public ActionResult Details(int? id)
+        // GET: Blog/{slug}
+        public ActionResult Details(string slug)
         {
-            if (id == null)
+            if (String.IsNullOrWhiteSpace(slug))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPost blogPost = db.Posts.Find(id);
+            BlogPost blogPost = db.Posts.Include(p=>p.Comments).FirstOrDefault(p=>p.Slug == slug);
             if (blogPost == null)
             {
                 return HttpNotFound();

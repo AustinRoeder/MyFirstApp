@@ -23,6 +23,7 @@ namespace GitFirstApp.Models.My_Models
         [Required]
         public string Body { get; set; }
         public string MediaURL { get; set; }
+        public string Category { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
     }

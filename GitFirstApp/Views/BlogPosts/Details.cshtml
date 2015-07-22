@@ -1,15 +1,13 @@
-﻿@model GitFirstApp.Models.My_Models.BlogPost
-
+﻿@using GitFirstApp.Models.My_Models;
+@model BlogPost
 @{
     ViewBag.Title = "Details";
 }
 <div class="container">
-
     <div class="row">
 
         <!-- Blog Post Content Column -->
-        <div class="col-md-8">
-
+        <div class="col-md-8 col-xs-12">
             <!-- Blog Post -->
             <!-- Title -->
             <h1>
@@ -24,7 +22,8 @@
             <hr>
 
             <!-- Date/Time -->
-            <p><span class="glyphicon glyphicon-time"></span> 
+            <p>
+                <span class="glyphicon glyphicon-time"></span>
                 @Html.DisplayFor(model => model.Created)
             </p>
 
@@ -38,136 +37,127 @@
             </p>
 
             <hr>
-
             <!-- Blog Comments -->
             <!-- Comments Form -->
-            <div class="well">
+            <div class="col-xs-12" style="margin-bottom: 10px;">
                 <h4>Leave a Comment:</h4>
-                <form role="form">
-                    <div class="form-group">
-                        <textarea class="form-control" rows="3"></textarea>
+                <form role="form" method="post" action="@Url.Action("Create", "Comments")">
+                    <div class="form-group" style="margin-bottom:0px;">
+                        <input type="hidden" name="PostID" value="@Model.ID" />
+                        <textarea name="Body" placeholder="Write your comment here."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" style="margin-bottom:10px;">Submit</button>
                 </form>
             </div>
-
-            <hr>
-
-            <!-- Posted Comments -->
+            @foreach (var c in Model.Comments.OrderByDescending(d => d.Created))
+            {
             <!-- Comment -->
-            <div class="media">
-                <a class="pull-left" href="#">
-                    <img class="media-object" src="http://placehold.it/64x64" alt="">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        Start Bootstrap
-                        <small>August 25, 2014 at 9:30 PM</small>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                <div class="media col-xs-11" style="margin-bottom:20px;">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            @c.Author.FirstName
+                            <small>@c.Created</small>
+                        </h4>
+                        @c.Body
+                    </div>
                 </div>
-            </div>
-
-            <!-- Comment -->
-            <div class="media">
-                <a class="pull-left" href="#">
-                    <img class="media-object" src="http://placehold.it/64x64" alt="">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        Start Bootstrap
-                        <small>August 25, 2014 at 9:30 PM</small>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    <!-- Nested Comment -->
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="http://placehold.it/64x64" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">
-                                Nested Start Bootstrap
-                                <small>August 25, 2014 at 9:30 PM</small>
-                            </h4>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                <div class="col-xs-1">
+                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                    {
+                        <form method="get" action="@Url.Action("Edit", "Comments")">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@c.ID" />
+                            <input type="hidden" name="Body" value="@c.Body" />
+                            <input type="hidden" name="PostID" value="@c.PostID" />
+                            <button type="submit" class="glyphicon glyphicon-pencil" style="text-decoration: none; color: black;"></button>
+                        </form>
+                        <br />
+                        <form method="post" action="@Url.Action("Delete", "Comments")">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@c.ID" />
+                            <input type="hidden" name="PostID" value="@c.PostID" />
+                            <button type="submit" class="glyphicon glyphicon-trash" style="text-decoration: none; color: black;"></button>
+                        </form>
+                        @*<a class="glyphicon glyphicon-pencil edit-a" href="#" data-toggle="modal"
+                           data-target="#editModal" data-id="@c.ID" data-body="@c.Body" style="text-decoration:none;color:black;"></a>
+                        <a class="glyphicon glyphicon-trash del-a" href="#" data-toggle="modal"
+                           data-target="#deleteModal" data-id="@c.ID" style="text-decoration:none;color:black;"></a>*@
+                    }
+                </div>
+            }
+            @*<!--Deletion Confirmation Modal-->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                 aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                <div class="modal-dialog" style="width: 30%;">
+                    <div class="modal-content">
+                        <div class="modal-header" style="text-align:center">
+                            <h2 class="modal-title" id="modalLabel">Confirm Deletion</h2>
+                        </div>
+                        <div class="modal-body col-xs-12">
+                            <div class="row" style="text-align:center">
+                                <h4>Are you sure?</h4>
+                                <form method="post" action="@Url.Action("Delete", "Comments")">
+                                    @Html.AntiForgeryToken()
+                                    <input  id="Del-Id" type="hidden" name="id" value="" />
+                                    <button type="submit">Yes</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">No</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <!-- End Nested Comment -->
                 </div>
             </div>
+            <!--Edit Screen Modal-->
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                 aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                <div class="modal-dialog" style="width: 30%;">
+                    <div class="modal-content">
+                        <div class="modal-header" style="text-align:center">
+                            <h2 class="modal-title" id="modalLabel">Edit Comment</h2>
+                        </div>
+                        <div class="modal-body col-xs-12">
+                            <div class="row" style="text-align:center">
+                                <form method="post" action="@Url.Action("Edit", "Comments")">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="PostID" value="@Model.ID" />
+                                    <input id="Edit-Id" type="hidden" name="id" value="" />
+                                    <textarea id="body" name="Body"></textarea>
+                                    <button type="submit">Confirm Edit</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
 
         </div>
-
+        <hr>
         <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
-
+        <div class="col-md-4 col-xs-12">
             <!-- Blog Search Well -->
             <div class="well">
                 <h4>Blog Search</h4>
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-                <!-- /.input-group -->
-            </div>
-
-            <!-- Blog Categories Well -->
-            <div class="well">
-                <h4>Blog Categories</h4>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#">Category Name</a>
-                            </li>
-                            <li>
-                                <a href="#">Category Name</a>
-                            </li>
-                            <li>
-                                <a href="#">Category Name</a>
-                            </li>
-                            <li>
-                                <a href="#">Category Name</a>
-                            </li>
-                        </ul>
+                <form action="@Url.Action("Index")">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
                     </div>
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#">Category Name</a>
-                            </li>
-                            <li>
-                                <a href="#">Category Name</a>
-                            </li>
-                            <li>
-                                <a href="#">Category Name</a>
-                            </li>
-                            <li>
-                                <a href="#">Category Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /.row -->
+                </form>
             </div>
-
-            <!-- Side Widget Well -->
             <div class="well">
                 <h4>Side Widget Well</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
             </div>
-
         </div>
-
     </div>
     <!-- /.row -->
-
     <hr>
-
     <!-- Footer -->
     <footer>
         <div class="row">
@@ -177,9 +167,32 @@
         </div>
         <!-- /.row -->
     </footer>
-
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+@section scripts{
+    <!--Modal Filler Script-->
+   @*
+    <script>
+       $(function () {
+           $('.del-a').click(function () {
+               $('#Del-Id').attr('value', $(this).data('id'));
+           })
+           $('.edit-a').click(function () {
+               $('#Edit-Id').attr('value', $(this).data('id'));
+               $('#body').text($(this).data('body'));
+           })
+       });
+    </script>*@
+
+    <!--Search Script-->
+    <script>
+        $(function () {
+            function SearchBlog(phrase) {
+                
+            }
+        });
+    </script>
+}

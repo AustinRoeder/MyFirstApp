@@ -2,6 +2,7 @@ using GitFirstApp.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace GitFirstApp.Migrations
                     FirstName = "Austin",
                     LastName = "Roeder",
                     DisplayName = "Austin",
-                }, "Purdue96!");
+                }, ConfigurationManager.AppSettings["AdminPassword"]);
             }
             if (!context.Users.Any(u => u.Email == "moderator@coderfoundry.com"))
             {
@@ -52,7 +53,7 @@ namespace GitFirstApp.Migrations
                     FirstName = "Coder",
                     LastName = "Foundry",
                     DisplayName = "CFoundry",
-                }, "Password1!");
+                }, ConfigurationManager.AppSettings["ModPassword"]);
             }
             var modID = userManager.FindByEmail("moderator@coderfoundry.com").Id;
             userManager.AddToRole(modID, "Moderator");

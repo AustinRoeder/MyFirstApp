@@ -1,0 +1,22 @@
+﻿@model IEnumerable<SmurfsProject.Models.Smurf>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <template class="divider">|</template>
+            <td>Age</td>
+            <template class="divider">|</template>
+            <td>Color</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Name</td>
+                <td>@s.Age</td>
+                <td>@s.Color</td>
+            </tr>
+        }
+    </tbody>
+</table>

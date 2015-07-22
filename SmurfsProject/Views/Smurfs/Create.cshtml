@@ -1,0 +1,9 @@
+﻿@model SmurfsProject.Models.Smurf 
+
+<h2>Create</h2>
+<form method="post" action="@Url.Action("Create")">
+    <input type="text" name="Name" placeholder="name"/>
+    <input type="text" name="Color" placeholder="color"/>
+    <input type="number" name="Age" placeholder="0"/>
+    <button type="submit">Build Smurf</button>
+</form>

@@ -52,7 +52,7 @@
         </td>
         <td style=" width:10%">
             @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { slug = item.Slug }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.ID })
         </td>
     </tr>

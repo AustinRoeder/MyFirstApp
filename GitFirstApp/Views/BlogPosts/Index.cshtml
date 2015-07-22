@@ -2,11 +2,6 @@
 @{
     ViewBag.Title = "Index";
 }
-@if (User.IsInRole("Admin"))
-{
-    <button>@Html.ActionLink("To Admin's Page", "AdminsIndex")</button>
-}
-<h2 style="margin-left:10px;">Blog Posts</h2>
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
@@ -27,7 +22,7 @@
                 <div class ="ellipsis">
                     <p>@Html.Raw(Model.ElementAt(i).Body)</p>
                 </div>
-                <a class="btn btn-primary" href="/BlogPosts/Details/@Model.ElementAt(i).ID">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="@Url.Action("Details", new { Model.ElementAt(i).Slug})">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
             }
             <!-- Pager -->
@@ -48,14 +43,16 @@
             <!-- Blog Search Well -->
             <div class="well">
                 <h4>Blog Search</h4>
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
+                <form action="@Url.Action("Index")">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
                 <!-- /.input-group -->
             </div>
 

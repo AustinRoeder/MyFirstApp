@@ -82,8 +82,12 @@ namespace GitFirstApp.Models
 
         [Required]
         [DataType(DataType.Text)]
-        [Display(Name = "Display Name")]
-        public string DisplayName { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
     }
 
     public class ResetPasswordViewModel

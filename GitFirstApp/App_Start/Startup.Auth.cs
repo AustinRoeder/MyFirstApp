@@ -56,18 +56,18 @@ namespace GitFirstApp
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseLinkedInAuthentication(
-            //    ConfigurationManager.AppSettings["LinkedInId"], 
-            //    ConfigurationManager.AppSettings["LinkedInSecret"]);
+            app.UseLinkedInAuthentication(
+                ConfigurationManager.AppSettings["LinkedInId"], 
+                ConfigurationManager.AppSettings["LinkedInSecret"]);
 
             app.UseFacebookAuthentication(
                appId: ConfigurationManager.AppSettings["FacebookId"],
-               appSecret: ConfigurationManager.AppSettings["FacebookId"]);
+               appSecret: ConfigurationManager.AppSettings["FacebookSecret"]);
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                 ClientId = ConfigurationManager.AppSettings["GoogleId"],
-                ClientSecret = ConfigurationManager.AppSettings["GoogleId"]
+                ClientSecret = ConfigurationManager.AppSettings["GoogleSecret"]
             });
         }
     }

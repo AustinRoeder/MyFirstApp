@@ -4415,7 +4415,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -5090,7 +5089,6 @@ a.thumbnail.active {
   background-image:         linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
 }
 .media {
-  margin-top: 15px;
 }
 .media:first-child {
   margin-top: 0;
@@ -5799,6 +5797,7 @@ button.close {
 .modal-body {
   position: relative;
   padding: 15px;
+  background-color: gainsboro;
 }
 .modal-footer {
   padding: 15px;
