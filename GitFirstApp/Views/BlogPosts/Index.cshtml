@@ -8,6 +8,15 @@
         <div class="col-md-8">
             @for (var i = 0; i < Model.Count(); i++)
             {
+                var comStr = "Comments";
+                if (Model.ElementAt(i).Comments.Count == 1)
+                {
+                    comStr = "1 Comment";
+                }
+                if (Model.ElementAt(i).Comments.Count == 0)
+                {
+                    comStr = "No Comments";
+                }
                 <!-- Blog Post -->
                 <h2>
                     @Model.ElementAt(i).Title
@@ -15,27 +24,49 @@
                 <p class="lead">
                     by Austin Roeder
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span>@Model.ElementAt(i).Created</p>
+                <p><span class="glyphicon glyphicon-time"></span>@Model.ElementAt(i).Created.DateTime <br />
+                        @if (Model.ElementAt(i).Comments.Count >= 2) {
+                            <small>@Model.ElementAt(i).Comments.Count @comStr</small>
+                        } else { 
+                            <small>@comStr</small>
+                        }
+                </p>
                 <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <div class ="ellipsis">
+                if(Model.ElementAt(i).MediaURL != null)
+                { 
+                    <img class="img-responsive" src="@Model.ElementAt(i).MediaURL" alt="">
+                    <hr>
+                }
+                <div class="ellipsis">
                     <p>@Html.Raw(Model.ElementAt(i).Body)</p>
                 </div>
-                <a class="btn btn-primary" href="@Url.Action("Details", new { Model.ElementAt(i).Slug})">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <div class=" row">
+                    <a class="btn btn-primary" href="@Url.Action("Details", new { Model.ElementAt(i).Slug})">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    @if (User.IsInRole("Admin")) { 
+                        <ul class="pull-right">
+                            <li>
+                                @Html.ActionLink(" Edit", "Edit", new { id = Model.ElementAt(i).ID }, htmlAttributes: new { @class="glyphicon glyphicon-pencil", style="text-decoration: none; color: black; margin-bottom:10px;" })
+                            </li>
+                            <li>
+                                @Html.ActionLink(" Delete", "Delete", new { slug = Model.ElementAt(i).Slug }, htmlAttributes: new { @class="glyphicon glyphicon-trash", style="text-decoration: none; color: black;" })
+                            </li>
+                        </ul>
+                    }
+                </div>    
                 <hr>
             }
             <!-- Pager -->
             <ul class="pager">
                 @{
-                    for (var i = 1; i <= ViewBag.ModelCount / 3 + 1; i++) {
-                    <li>
-                        <a href="/BlogPosts/Index?page=@i">@i</a>
-                    </li>
+                    for (var i = 1; i <= ViewBag.ModelCount / 3 + 1; i++)
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = ViewBag.Category, page = i})">@i</a>
+                        </li>
                     }
                 }
             </ul>
-    </div>
+        </div>
 
         <!-- Blog Sidebar Widgets Column -->
         <div class="col-md-4">
@@ -43,9 +74,10 @@
             <!-- Blog Search Well -->
             <div class="well">
                 <h4>Blog Search</h4>
-                <form action="@Url.Action("Index")">
+                <form method="get" action="@Url.Action("Index", "BlogPosts")">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control">
+                        <input type="hidden" name="category" value="@ViewBag.Category" />
+                        <input type="text" name="search" class="form-control" value="@ViewBag.Search">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -58,8 +90,27 @@
 
             <!-- Side Widget Well -->
             <div class="well">
-                <h4>Side Widget Well</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                <h4>Blog Categories</h4>
+                @if (ViewBag.Category == "Business")
+                {
+                    <a class="glyphicon glyphicon-minus" style="font-size: 20px; text-decoration: none; color: black;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Business"})">Business</a>
+                    <a class="pull-right" style="font-size: 15px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search })">Neither</a>
+                    <br />
+                    <a style="font-size: 18px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Personal"})">Personal</a>
+                }
+                else if (ViewBag.Category == "Personal")
+                {
+                    <a style="font-size: 18px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Business"})">Business</a>
+                    <a class="pull-right" style="font-size: 15px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search })">Neither</a>
+                    <br />
+                    <a class="glyphicon glyphicon-minus" style="font-size: 20px; text-decoration: none; color: black;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Personal"})">Personal</a>
+                }
+                else
+                {
+                    <a style="font-size: 18px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Business"})">Business</a>
+                    <br />
+                    <a style="font-size: 18px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Personal"})">Personal</a>
+                }
             </div>
         </div>
     </div>

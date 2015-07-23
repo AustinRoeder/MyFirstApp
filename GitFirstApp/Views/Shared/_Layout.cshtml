@@ -33,11 +33,13 @@
                     </li>
                     @if (User.IsInRole("Admin"))
                     {
-                        <li class="option2 dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog &or;</a>
-                            <ul class="dropdown-menu" style="right: -40px; min-width: 0px;">
-                                <li><a href="/BlogPosts/Index">Visitor's View</a></li>
-                                <li><a href="/BlogPosts/AdminsIndex">Admin's View</a></li>
+                        <li class="option3">
+                            <a class="drop">
+                                Blog <small>▼</small>
+                            </a>
+                            <ul class="dropdownMenu" style="list-style-type: none;">
+                                <li style="margin-bottom: 5px;"><a style="text-decoration: none; color: white;" href="@Url.Action("Index","BlogPosts")">Viewer's Index</a></li>
+                                <li><a style="text-decoration: none; color: white;" href="@Url.Action("AdminsIndex","BlogPosts")">Admin's Index</a></li>
                             </ul>
                         </li>
                     }
@@ -67,6 +69,32 @@
     <script src="~/Scripts/jquery.dotdotdot.js"></script>
     <script src="~/Scripts/exercises.js"></script>
     <script src="~/Scripts/Functions.js"></script>
+    <script>
+        $(document).ready(function (e) {
+            function t(t) {
+                e(t).bind("click", function (t) {
+                    t.preventDefault();
+                    e(this).parent().fadeOut()
+                })
+            }
+            e(".drop").click(function () {
+                var t = e(this).parents(".option3").children(".dropdownMenu").is(":hidden");
+                e(".option3 .dropdownMenu").hide();
+                e(".option3 .drop").removeClass("active");
+                if (t) {
+                    e(this).parents(".option3").children(".dropdownMenu").toggle().parents(".option3").children(".drop").addClass("active")
+                }
+            });
+            e(document).bind("click", function (t) {
+                var n = e(t.target);
+                if (!n.parents().hasClass("option3")) e(".option3 .dropdownMenu").hide();
+            });
+            e(document).bind("click", function (t) {
+                var n = e(t.target);
+                if (!n.parents().hasClass("option3")) e(".option3 .drop").removeClass("active");
+            })
+        });
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

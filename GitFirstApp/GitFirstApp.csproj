@@ -469,6 +469,8 @@
     <Content Include="Scripts\tinymce\tinymce.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\archer.jpg" />
+    <Content Include="Uploads\webdesign.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

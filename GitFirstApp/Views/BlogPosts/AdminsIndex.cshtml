@@ -33,7 +33,7 @@
 @foreach (var item in Model.Reverse()) {
     <tr>
         <td style=" width:10%">
-            @Html.DisplayFor(modelItem => item.Created)
+            @Html.DisplayFor(modelItem => item.Created.DateTime)
         </td>
         <td style=" width:10%">
             @Html.DisplayFor(modelItem => item.Updated)

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using GitFirstApp.Models;
 using GitFirstApp.Models.My_Models;
 using System.Web.UI;
+using System.IO;
 
 namespace GitFirstApp.Controllers
 {
@@ -17,18 +18,43 @@ namespace GitFirstApp.Controllers
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        
         // GET: BlogPosts
-        public ActionResult Index(string search, int? page)
+        public ActionResult Index(string search, string category, int? page)
         {
+            ViewBag.Category = category;
+            ViewBag.Search = search;
+            ViewBag.Page = page;
+            List<BlogPost> db1 = new List<BlogPost>();
             var pagesize = 3;
             var skip = (page ?? 1) * pagesize - pagesize;
-            if (search != null)
+            if (!String.IsNullOrWhiteSpace(category))
             {
-                return View(db.Posts.Where(p => p.Title.Contains(search) || p.Slug.Contains(search) || p.Body.Contains(search) || p.Comments.Any(c => c.Body.Contains(search))).OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
+                foreach(BlogPost post in db.Posts)
+                {
+                    if(post.Category == category)
+                    {
+                        db1.Add(post);
+                        if (!String.IsNullOrWhiteSpace(search))
+                        {
+                            db1 = db1.Where(p => p.Title.Contains(search) || p.Slug.Contains(search) || p.Body.Contains(search) || p.Comments.Any(c => c.Body.Contains(search))).ToList();
+                        }
+                    }
+                }
+                ViewBag.ModelCount = db1.Count;
+                return View(db1.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize));
+            }
+            if (!String.IsNullOrWhiteSpace(search))
+            {
+                db1 = db.Posts.Where(p => p.Title.Contains(search) || p.Slug.Contains(search) || p.Body.Contains(search) || p.Comments.Any(c => c.Body.Contains(search))).ToList();
+                if (!String.IsNullOrWhiteSpace(category))
+                {
+                    db1 = db1.Where(p => p.Category == category).ToList();
+                }
+                ViewBag.ModelCount = db1.Count;
+                return View(db1.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
             }
             ViewBag.ModelCount = db.Posts.Count();
-
             return View(db.Posts.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
         }
        
@@ -65,10 +91,25 @@ namespace GitFirstApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost)
+        public ActionResult Create([Bind(Include = "ID,Category,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost, HttpPostedFileBase image)
         {
+            if (image != null && image.ContentLength > 0)
+            {
+                var ext = Path.GetExtension(image.FileName).ToLower();
+                if (ext != ".png" && ext != ".jpg" && ext != ".jpeg" && ext != ".gif" && ext != ".bmp")
+                    ModelState.AddModelError("image", "Invalid Format");
+            }
+
             if (ModelState.IsValid)
             {
+                if (image != null)
+                {
+                    var filePath = "/Uploads/";
+                    var absPath = Server.MapPath("~" + filePath);
+                    blogPost.MediaURL = filePath + image.FileName;
+                    image.SaveAs(Path.Combine(absPath, image.FileName));
+                }
+
                 var slug = StringUtilities.UrlFriendly(blogPost.Title);
 
                 if (String.IsNullOrWhiteSpace(slug))
@@ -83,7 +124,7 @@ namespace GitFirstApp.Controllers
                 }
                 else
                 {
-                    blogPost.Created = DateTimeOffset.Now;
+                    blogPost.Created = DateTimeOffset.Now.DateTime;
                     blogPost.Slug = slug;
 
                     db.Posts.Add(blogPost);
@@ -122,7 +163,7 @@ namespace GitFirstApp.Controllers
             {
                 db.Posts.Attach(blogPost);
                 db.Entry(blogPost).Property("Body").IsModified = true;
-                blogPost.Updated = DateTimeOffset.Now;
+                blogPost.Updated = DateTimeOffset.Now.DateTime;
                 db.Entry(blogPost).Property("Updated").IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("Index");

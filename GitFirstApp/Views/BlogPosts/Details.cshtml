@@ -12,6 +12,7 @@
             <!-- Title -->
             <h1>
                 @Html.DisplayFor(model => model.Title)
+                <button class="btn btn-sm pull-right" onclick="location.href='@Url.Action("Index", "BlogPosts")'">Return to Index</button>
             </h1>
 
             <!-- Author -->
@@ -29,8 +30,13 @@
 
 
             <!-- Preview Image -->
-            <hr>
-
+            @if(Model.MediaURL != null)
+            {
+                <div class="centered">
+                    <img class="img-responsive" src="@Model.MediaURL" alt="">
+                </div>
+                <hr>
+            }
             <!-- Post Content -->
             <p class="lead">
                 @Html.Raw(Model.Body)
@@ -59,7 +65,7 @@
                     <div class="media-body">
                         <h4 class="media-heading">
                             @c.Author.FirstName
-                            <small>@c.Created</small>
+                            <small>@c.Created.DateTime</small>
                         </h4>
                         @c.Body
                     </div>
@@ -82,66 +88,68 @@
                             <button type="submit" class="glyphicon glyphicon-trash" style="text-decoration: none; color: black;"></button>
                         </form>
                         @*<a class="glyphicon glyphicon-pencil edit-a" href="#" data-toggle="modal"
-                           data-target="#editModal" data-id="@c.ID" data-body="@c.Body" style="text-decoration:none;color:black;"></a>
-                        <a class="glyphicon glyphicon-trash del-a" href="#" data-toggle="modal"
-                           data-target="#deleteModal" data-id="@c.ID" style="text-decoration:none;color:black;"></a>*@
+                               data-target="#editModal" data-id="@c.ID" data-body="@c.Body" style="text-decoration:none;color:black;"></a>
+                            <a class="glyphicon glyphicon-trash del-a" href="#" data-toggle="modal"
+                               data-target="#deleteModal" data-id="@c.ID" style="text-decoration:none;color:black;"></a>*@
                     }
                 </div>
             }
             @*<!--Deletion Confirmation Modal-->
-            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-                 aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                <div class="modal-dialog" style="width: 30%;">
-                    <div class="modal-content">
-                        <div class="modal-header" style="text-align:center">
-                            <h2 class="modal-title" id="modalLabel">Confirm Deletion</h2>
-                        </div>
-                        <div class="modal-body col-xs-12">
-                            <div class="row" style="text-align:center">
-                                <h4>Are you sure?</h4>
-                                <form method="post" action="@Url.Action("Delete", "Comments")">
-                                    @Html.AntiForgeryToken()
-                                    <input  id="Del-Id" type="hidden" name="id" value="" />
-                                    <button type="submit">Yes</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">No</button>
-                                </form>
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                    <div class="modal-dialog" style="width: 30%;">
+                        <div class="modal-content">
+                            <div class="modal-header" style="text-align:center">
+                                <h2 class="modal-title" id="modalLabel">Confirm Deletion</h2>
+                            </div>
+                            <div class="modal-body col-xs-12">
+                                <div class="row" style="text-align:center">
+                                    <h4>Are you sure?</h4>
+                                    <form method="post" action="@Url.Action("Delete", "Comments")">
+                                        @Html.AntiForgeryToken()
+                                        <input  id="Del-Id" type="hidden" name="id" value="" />
+                                        <button type="submit">Yes</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">No</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--Edit Screen Modal-->
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
-                 aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                <div class="modal-dialog" style="width: 30%;">
-                    <div class="modal-content">
-                        <div class="modal-header" style="text-align:center">
-                            <h2 class="modal-title" id="modalLabel">Edit Comment</h2>
-                        </div>
-                        <div class="modal-body col-xs-12">
-                            <div class="row" style="text-align:center">
-                                <form method="post" action="@Url.Action("Edit", "Comments")">
-                                    @Html.AntiForgeryToken()
-                                    <input type="hidden" name="PostID" value="@Model.ID" />
-                                    <input id="Edit-Id" type="hidden" name="id" value="" />
-                                    <textarea id="body" name="Body"></textarea>
-                                    <button type="submit">Confirm Edit</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">Cancel</button>
-                                </form>
+                <!--Edit Screen Modal-->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                    <div class="modal-dialog" style="width: 30%;">
+                        <div class="modal-content">
+                            <div class="modal-header" style="text-align:center">
+                                <h2 class="modal-title" id="modalLabel">Edit Comment</h2>
+                            </div>
+                            <div class="modal-body col-xs-12">
+                                <div class="row" style="text-align:center">
+                                    <form method="post" action="@Url.Action("Edit", "Comments")">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="PostID" value="@Model.ID" />
+                                        <input id="Edit-Id" type="hidden" name="id" value="" />
+                                        <textarea id="body" name="Body"></textarea>
+                                        <button type="submit">Confirm Edit</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">Cancel</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>*@
+                </div>*@
 
         </div>
         <hr>
         <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4 col-xs-12">
+        <div class="col-md-4">
+
             <!-- Blog Search Well -->
             <div class="well">
                 <h4>Blog Search</h4>
-                <form action="@Url.Action("Index")">
+                <form method="get" action="@Url.Action("Index", "BlogPosts")">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control">
+                        <input type="hidden" name="category" value="@ViewBag.Category" />
+                        <input type="text" name="search" class="form-control" value="@ViewBag.Search">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -149,12 +157,35 @@
                         </span>
                     </div>
                 </form>
+                <!-- /.input-group -->
             </div>
+
+            <!-- Categories -->
             <div class="well">
-                <h4>Side Widget Well</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                <h4>Blog Categories</h4>
+                @if (ViewBag.Category == "Business")
+                {
+                    <a class="glyphicon glyphicon-minus" style="font-size: 20px; text-decoration: none; color: black;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Business"})">Business</a>
+                    <a class="pull-right" style="font-size: 15px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search })">Neither</a>
+                    <br />
+                    <a style="font-size: 18px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Personal"})">Personal</a>
+                }
+                else if (ViewBag.Category == "Personal")
+                {
+                    <a style="font-size: 18px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Business"})">Business</a>
+                    <a class="pull-right" style="font-size: 15px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search })">Neither</a>
+                    <br />
+                    <a class="glyphicon glyphicon-minus" style="font-size: 20px; text-decoration: none; color: black;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Personal"})">Personal</a>
+                }
+                else
+                {
+                    <a style="font-size: 18px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Business"})">Business</a>
+                    <br />
+                    <a style="font-size: 18px; text-decoration: none; color: dimgray;" href="@Url.Action("Index", "BlogPosts", new { search = ViewBag.Search, category = "Personal"})">Personal</a>
+                }
             </div>
         </div>
+
     </div>
     <!-- /.row -->
     <hr>
@@ -174,24 +205,24 @@
 </p>
 @section scripts{
     <!--Modal Filler Script-->
-   @*
-    <script>
-       $(function () {
-           $('.del-a').click(function () {
-               $('#Del-Id').attr('value', $(this).data('id'));
-           })
-           $('.edit-a').click(function () {
-               $('#Edit-Id').attr('value', $(this).data('id'));
-               $('#body').text($(this).data('body'));
-           })
-       });
-    </script>*@
+    @*
+        <script>
+           $(function () {
+               $('.del-a').click(function () {
+                   $('#Del-Id').attr('value', $(this).data('id'));
+               })
+               $('.edit-a').click(function () {
+                   $('#Edit-Id').attr('value', $(this).data('id'));
+                   $('#body').text($(this).data('body'));
+               })
+           });
+        </script>*@
 
     <!--Search Script-->
     <script>
         $(function () {
             function SearchBlog(phrase) {
-                
+
             }
         });
     </script>
