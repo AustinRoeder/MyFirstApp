@@ -37,7 +37,7 @@
                                                     <br>
                                                     <form>
                                                         Please type 5 numbers:
-                                                        <input type="text" id="maxString" value="">
+                                                        <input type="number" style="color: black;" id="maxString" value="">
                                                         <br>
                                                         <input type="button" name="calcButton" value="Calculate" onclick="maxOfFive($('#maxString').val())">
                                                         <hr>
@@ -89,7 +89,7 @@
                                                     <br>
                                                     <form>
                                                         Please enter numbers:
-                                                        <input type="text" id="operationsStr" value="">
+                                                        <input type="number" style="color: black;" id="operationsStr" value="">
                                                         <br>
                                                         <input type="button" name="calcButton" value="Calculate" onclick="operations($('#operationsStr').val())">
                                                         <hr>
@@ -152,7 +152,7 @@
                                                     <br>
                                                     <form>
                                                         Please type a number:
-                                                        <input type="number" id="factorialNum" value="0">
+                                                        <input type="number" style="color: black;" id="factorialNum" value="0">
                                                         <br>
                                                         <input type="button" name="calcButton" value="Calculate" onclick="$('#factRes').html(factorial($('#factorialNum').val()))">
                                                         <hr>
@@ -207,7 +207,7 @@
                                                     <br>
                                                     <form>
                                                         Please enter a word or phrase:
-                                                        <input type="text" id="palindromeStr" value="">
+                                                        <input type="number" style="color: black;" id="palindromeStr" value="">
                                                         <br>
                                                         <input type="button" name="calcButton" value="Calculate" onclick="palindrome($('#palindromeStr').val())">
                                                         <hr>
@@ -318,7 +318,7 @@
                                                     <br>
                                                     <form>
                                                         Please enter a number:
-                                                        <input type="number" id="perfectNum" value="0">
+                                                        <input type="number" style="color: black;" id="perfectNum" value="0">
                                                         <br>
                                                         <input type="button" name="calcButton" value="Calculate" onclick="$('#perfRes').html(perfectNumbers($('#perfectNum').val()) ? 'Entered number is prefect.':'Entered number is not perfect.')">
                                                         <input type="button" value="Generate Between 10,000" onclick="$('#firstperfRes').html(perfectNumberRun())">
@@ -391,7 +391,7 @@
                                                     <br>
                                                     <form>
                                                         Please type a number:
-                                                        <input type="number" id="happyNum" value="0">
+                                                        <input type="number" style="color: black;" id="happyNum" value="0">
                                                         <br>
                                                         <input type="button" name="calcButton" value="Calculate" onclick="$('#happyRes').html(happyNums($('#happyNum').val()) ? 'Entered number is a happy number.' : 'Entered number is not a happy number.')">
                                                         <hr>
@@ -570,7 +570,7 @@
                                                     <br>
                                                     <form>
                                                         <input type="file" id="filterFile">
-                                                        <input type="number" id="filterNum" value="0">
+                                                        <input type="number" style="color: black;" id="filterNum" value="0">
                                                         <br>
                                                         <input type="button" name="calcButton" value="Filter Words" onclick="filterWords()">
                                                         <hr>
@@ -715,7 +715,7 @@
                                                     </p>
                                                     <br>
                                                     <form>
-                                                        <input type="text" id="findString" value="" placeholder="Please enter a word.">
+                                                        <input type="number" style="color: black;" id="findString" value="" placeholder="Please enter a word.">
                                                         <input type="file" id="findFile">
                                                         <br>
                                                         <input type="button" name="calcButton" value="Find Frequency" onclick="findWord($('#findString').val())">

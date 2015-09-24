@@ -25,37 +25,20 @@ namespace GitFirstApp.Controllers
             ViewBag.Category = category;
             ViewBag.Search = search;
             ViewBag.Page = page;
-            List<BlogPost> db1 = new List<BlogPost>();
+           
+            var db1 = db.Posts.AsQueryable();
             var pagesize = 3;
             var skip = (page ?? 1) * pagesize - pagesize;
             if (!String.IsNullOrWhiteSpace(category))
             {
-                foreach(BlogPost post in db.Posts)
-                {
-                    if(post.Category == category)
-                    {
-                        db1.Add(post);
-                        if (!String.IsNullOrWhiteSpace(search))
-                        {
-                            db1 = db1.Where(p => p.Title.Contains(search) || p.Slug.Contains(search) || p.Body.Contains(search) || p.Comments.Any(c => c.Body.Contains(search))).ToList();
-                        }
-                    }
-                }
-                ViewBag.ModelCount = db1.Count;
-                return View(db1.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize));
+                db1 = db.Posts.Where(p => p.Category == category);
             }
             if (!String.IsNullOrWhiteSpace(search))
             {
-                db1 = db.Posts.Where(p => p.Title.Contains(search) || p.Slug.Contains(search) || p.Body.Contains(search) || p.Comments.Any(c => c.Body.Contains(search))).ToList();
-                if (!String.IsNullOrWhiteSpace(category))
-                {
-                    db1 = db1.Where(p => p.Category == category).ToList();
-                }
-                ViewBag.ModelCount = db1.Count;
-                return View(db1.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
+                db1 = db1.Where(p => p.Title.Contains(search) || p.Slug.Contains(search) || p.Body.Contains(search) || p.Comments.Any(c => c.Body.Contains(search)));
             }
-            ViewBag.ModelCount = db.Posts.Count();
-            return View(db.Posts.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
+            ViewBag.ModelCount = db1.Count();
+            return View(db1.OrderByDescending(d => d.Created).Skip(skip).Take(pagesize).ToList());
         }
        
         [Authorize(Roles="Admin")]

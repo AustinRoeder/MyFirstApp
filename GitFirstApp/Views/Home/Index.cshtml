@@ -1,145 +1,908 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<header id="home">
 
-<div id="headerwrap">
-    <div class="row" style="width:100%;">
-        <div class="col-lg-6 col-lg-offset-3 " style="bottom: 150px;">
-            <h2>Austin Roeder</h2>
-            <h4>WEB DESIGNER AND DEVELOPER</h4>
-        </div>
-    </div>
-</div>
-<section id="works">
-    <div style="background-color: #ececec">
-        <div class="container">
-            <div class="row centered mt mb">
-                <h1>My Portfolio</h1>
-                <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-                    <a href="/Home/JavaScript">
-                        <img src="~/img/jshome.png" class="img-responsive">
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 gallery" style="bottom: 20px;">
-                    <a href="javascript:alert('This site is currently being worked on. Check back later.')">
-                        <img src="~/img/bugtrackPic.png" class="img-responsive">
-                    </a>
-                </div>
-                @*
-                <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-                    <a href="javascript:alert('This site is currently being worked on. Check back later.')">
-                        <img src="~/img/portfolio/folio03.png" class="img-responsive">
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-                    <a href="#"><img src="~/img/portfolio/folio04.png" class="img-responsive"></a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-                    <a href="#"><img src="~/img/portfolio/folio05.png" class="img-responsive"></a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-                    <a href="#"><img src="~/img/portfolio/folio06.png" class="img-responsive"></a>
-                </div>
-                *@
+</header>
+
+<section id="services" class="add-padding border-bottom-color2">
+
+    <div class="container">
+
+        <h1 class="section-title big-text scrollimation fade-up in">My Other Websites</h1>
+
+        <div class="row">
+
+            <div class="col-sm-4 service-item color3 scrollimation scale-in in">
+
+                <a class="service-icon" href="https://aroeder-bugtracker.azurewebsites.net"><i class="fa fa-folder-open"></i></a>
+
+                <h3>Bug Tracker</h3>
+
+                <p>Build projects to keep track of programs or services and then add tickets to show progress. Based on user's role, some aspects will not be usable.</p>
+
+
             </div>
+
+            <div class="col-sm-4 service-item color1 scrollimation scale-in d1 in">
+
+                <a class="service-icon" href="https://aroeder-carfinder.azurewebsites.net"><i class="fa fa-car "></i></a>
+
+                <h3>Car Finder</h3>
+
+                <p>Search through more than 60,000 cars. Find out useful information about any specific car, ranging from body specs to fully detailed recall data.</p>
+
+
+            </div>
+
+            <div class="col-sm-4 service-item color2 scrollimation scale-in d2 in">
+
+                <a class="service-icon" href="http://aroeder-budget.azurewebsites.net"><i class="fa fa-money"></i></a>
+
+                <h3>Budget Planner</h3>
+
+                <p>Hold onto your money by keeping close eye over purchases. Using this software set budgets for yourself, while also monitoring how much you spend.</p>
+
+            </div>
+
         </div>
+
     </div>
+
 </section>
-<section id="contact">
-    <div class="container" style="margin-bottom:30px;">
-        <div class="row centered">
-            <h2>Connect With Me Online</h2>
-            <div class="col-md-3">
-                <h3>GitHub</h3>
-                <p>
-                    <!--Github account setup-->
-                    <img src="~/img/github_img.png" style="height: 64px; width: 64px;" />
-                </p>
-                <p><a class="btn btn-default" href="https://github.com/Veidron" target="_blank">My GitHub &raquo;</a></p>
+
+<section id="about" class="add-padding bg-color2">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-6 scrollimation fade-right d1 in">
+
+                <img class="img-responsive polaroid" src="~/Template/assets/images/about.png" alt="">
+
             </div>
-            <div class="col-md-3">
-                <h3>LinkedIn</h3>
-                <p>
-                    <!--LinkedIn account setup-->
-                    <img src="~/img/linkedin.png" style="height: 64px; width: 64px;" />
-                </p>
-                <p><a class="btn btn-default" href="https://www.linkedin.com/profile/view?id=349268042" target="_blank">My LinkedIn &raquo;</a></p>
+
+            <div class="col-sm-6 scrollimation fade-left d3 in">
+
+                <h1 class="big-text">I am <br>Austin Roeder </h1>
+
+                <p class="lead">A nineteen year old web-designer from Georgia.</p>
+
+                <p>I began my adventures in programming after entering high school. Once the 10th Grade semester-long beginners course was over, I continued learning the C# language by finding tutorials online and teaching myself what I thought I needed to know. Going into college I had picked up multiple new programming styles including Java and HTML5. After finding programming boot camps that interested me, I began teaching myself the necessary languages to get into the programs, including JavaScript and Ruby.  Being accepted into Coder Foundry, I began going over HTML and CSS, as well as focusing less on Ruby and more on JavaScript.</p>
+
             </div>
-            <div class="col-md-3">
-                <h3>CoderByte</h3>
-                <p>
-                    <!--CoderByte account setup-->
-                    <img src="~/img/coderbyte.png" style="height: 64px; width: 64px;" />
-                </p>
-                <p><a class="btn btn-default" href="http://coderbyte.com/CodingArea/Profile/?user=Veidron" target="_blank">My Coding Area &raquo;</a></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="portfolio" class="add-padding">
+
+    <div class="container">
+
+        <h1 class="big-text text-center scrollimation fade-in in">My Works</h1>
+
+        <!--==== Portfolio Filters ====-->
+        <div id="filter-works">
+            <ul>
+                <li class="scrollimation fade-right d1 in active">
+                    <a href="#" data-filter="*">All</a>
+                </li>
+                <li class="scrollimation fade-right in">
+                    <a href="#" data-filter=".basic">Basic Math Scripts</a>
+                </li>
+                <li class="scrollimation fade-left in">
+                    <a href="#" data-filter=".hard">Harder Math Scripts</a>
+                </li>
+                <li class="scrollimation fade-left d1 in">
+                    <a href="#" data-filter=".fileio">File I/O Scripts</a>
+                </li>
+            </ul>
+        </div><!--End portfolio filters -->
+        <!--==== Project Preview ====-->
+        <div id="project-preview" class="" style="display: none; opacity: 0;">
+
+            <span class="close-preview">×</span>
+
+            <h1 id="project-title">Austin Texas</h1>
+
+            <div id="project-content">
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.</p>
+
+                <p>Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.</p>
+                <p>Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.</p>
+                <p class="text-right"><a class="btn btn-color1" href="#external-link"><i class="fa fa-dribbble"></i>View on Dribbble</a></p>
             </div>
-            <div class="col-md-3">
-                <h3>Mail</h3>
-                <p>
-                    <!--Gmail account setup-->
-                    <img src="~/img/gmail.png" style="height: 64px; width: 64px;" />
-                </p>
-                <p><a class="btn btn-default" href="#" data-toggle="modal" data-target="#mailModal">E-Mail Me &raquo;</a></p>
-            </div>
-            <!--Mail Modal-->
-            <div class="modal fade" id="mailModal" tabindex="-1" role="dialog"
-                 aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                            <h2 class="modal-title" id="modalLabel">Send an Email</h2>
+
+        </div><!--Project Preview -->
+
+    </div> <!-- Project View and Filters Container -->
+
+    <div class="container masonry-wrapper" style="opacity: 1; display: block;">
+
+        <div id="projects-container" class="masonry" style="visibility: visible; position: relative; height: 909px; width: 1160px;">
+
+            <article class="project-item basic masonry-brick" style="position: absolute; top: 0px; left: 0px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Max Of Five</h2><!--Project Title -->
+                    <p>basic</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                Input five numbers with spaces between each,
+
+                                and this function will output the largest.
+                            </p>
+                            <br>
+                            <form>
+                                Please type 5 numbers:
+                                <input type="text" id="maxString" style="color:black"value="">
+                                <br>
+                                <input type="button" name="calcButton" value="Calculate" onclick="maxOfFive($('#maxString').val())">
+                                <hr>
+                                <h4 id="maxRes">Results will appear here.</h4>
+                            </form>
                         </div>
-                        <div class="modal-body col-xs-12">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="row text-center">
-                                        <h4>Address</h4>
-                                        <p>1231 Shields Road Suite 5</p>
-                                        <p>Kernersville, NC 27284</p>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-xs-6">
-                                            <h4>Phone</h4>
-                                            <p>678.756.6546</p>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <h4>Email</h4>
-                                            <a href="mailto:austinjroeder@gmail.com">austinjroeder@gmail.com</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <form action="@Url.Action("Index","Home")" method="post" name="contactMe">
-                                        @Html.AntiForgeryToken()
-                                        <div class="row text-left">
-                                            <div class="col-xs-12">
-                                                <input name="Name" placeholder="Your Name*" type="text" style="width:auto; margin-bottom: 10px;" />
-                                            </div>
-                                        </div>
-                                        <div class="row text-left">
-                                            <div class="col-xs-12">
-                                                <input name="Email" placeholder="Your Email*" type="text" style="width:auto;margin-bottom: 10px;" />
-                                            </div>
-                                        </div>
-                                        <div class="row text-left">
-                                            <div class="col-xs-12">
-                                                <input name="Subject" placeholder="Subject*" type="text" style="width:auto;margin-bottom: 10px;" />
-                                            </div>
-                                        </div>
-                                        <div class="row text-left">
-                                            <div class="col-xs-12">
-                                                <textarea name="Message" placeholder="Message*" style="width: auto;" rows="4"></textarea>
-                                                <button type="submit" style="margin-left: 10px;"><p>Send Email &raquo;</p></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                        <div class="col-xs-6" style="height:auto">
+                            <pre class="brush: js">
+                function maxOfFive(str)
+                {
+                    var numArr = str.match(/-?\d+/g);
+                    $("#maxRes").html(Math.max(numArr[0],
+                  numArr[1], numArr[2], numArr[3], numArr[4]));
+                }
+                                                        </pre>
                         </div>
                     </div>
                 </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item basic masonry-brick" style="position: absolute; top: 0px; left: 395px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Sum | Product</h2><!--Project Title -->
+                    <p>basic</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                Input numbers, seperating with a space, and
+
+                                these functions will return the Sum and Product
+
+                                of the given numbers.
+                            </p>
+                            <br>
+                            <form>
+                                Please enter numbers:
+                                <input type="text" id="operationsStr" style="color: black;" value="">
+                                <br>
+                                <input type="button" name="calcButton" value="Calculate" onclick="operations($('#operationsStr').val())">
+                                <hr>
+                                <h4 id="sumRes">Sum will be shown here.</h4>
+                                <h4 id="prodRes">Product will be shown here.</h4>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush: js">
+            function operations(str) {
+                var nums = str.match(/-?\d+/g);
+                var s = 0;
+                var p = 1;
+                for (i = 0; i < nums.length; i++) {
+                    s += Number(nums[i]);
+                    p *= nums[i];
+                }                                            
+                $("#sumRes").html(s);                                            
+                $("#prodRes").html(p);
+            }
+                                                        </pre>
+                        </div>
+                    </div>
+
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item basic masonry-brick" style="position: absolute; top: 0px; left: 790px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Factorials</h2><!--Project Title -->
+                    <p>basic</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                Factorials are the product of a given number
+
+                                multiplied by all the preceding numbers down to 1
+
+                                represented by the number followed by "!".
+
+                                EXAMPLE: "5!" would come out to
+
+                                (5 * 4 * 3 * 2 * 1) giving you 120.
+                            </p>
+                            <br>
+                            <form>
+                                Please type a number:
+                                <input type="number" style="color: black;" id="factorialNum" value="0">
+                                <br>
+                                <input type="button" name="calcButton" value="Calculate" onclick="$('#factRes').html(factorial($('#factorialNum').val()))">
+                                <hr>
+                                <h4 id="factRes">Results will appear here.</h4>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush: js">
+        function factorial(num1) {
+            var n = num1;
+            if (n == 1) {
+                return 1;
+            }
+            else {
+                return n * factorial(n - 1);
+            }
+        }
+            </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item basic masonry-brick" style="position: absolute; top: 303px; left: 0px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Palindrome</h2><!--Project Title -->
+                    <p>basic</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                A palindrome is a word or phrase that is spelled
+
+                                the same forward, as it is backward.
+
+                                EXAMPLE: "Race car" and "Is Adam mad as I" are palindromes.
+                            </p>
+                            <br>
+                            <form>
+                                Please enter a word or phrase:
+                                <input type="number" style="color: black;" id="palindromeStr" value="">
+                                <br>
+                                <input type="button" name="calcButton" value="Calculate" onclick="palindrome($('#palindromeStr').val())">
+                                <hr>
+                                <h4 id="palinRes">Results returned here.</h4>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush: js">
+    function palindrome(str) {
+        var text = str.replace(/[^0-9A-Za-z]*/g, '')
+                        .toLowerCase();
+        var revStr = text.split('').reverse()
+                            .join('');
+        $('#palinRes').html(revStr == text
+                        ? str + " is a palindrome."
+                        : str + " is not a palindrome.");
+    }
+        </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item basic masonry-brick" style="position: absolute; top: 303px; left: 395px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Fizz Buzz</h2><!--Project Title -->
+                    <p>basic</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                This function iterates through the numbers 1 to 100, printing "Fizz" if the number is divisible by 3 and "Buzz" if divisible by 5. If divisble by both, it prints "FizzBuzz".
+                            </p>
+                            <br>
+                            <form>
+                                <input type="button" name="calcButton" value="FizzBuzz" onclick="fizzbuzz()">
+                                <br>
+                                <textarea style="color: black; margin: 0px; height: 137px; width: 300px;" id="fizzbuzzResults"></textarea>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush:js">
+        function fizzbuzz() {
+            var ans = "";
+            for (var i = 1; i <= 100; i++) {
+                if (i % 15 == 0) {
+                    ans += "FizzBuzz, ";
+                }
+                else if (i % 3 == 0) {
+                    ans += "Fizz, ";
+                }
+                else if (i % 5 == 0) {
+                    ans += "Buzz, ";
+                }
+                else
+                    ans += i + ", ";
+            }
+            $('#fizzbuzzResults').html(ans);
+        }
+            </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item hard masonry-brick" style="position: absolute; top: 303px; left: 790px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Perfect Numbers</h2><!--Project Title -->
+                    <p>hard</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                A perfect number is a positive integer that is equal to the sum of its
+
+                                proper positive divisors, that is, the sum of its positive divisors excluding the number itself.
+                            </p>
+                            <br>
+                            <form>
+                                Please enter a number:
+                                <input type="number" style="color: black;" id="perfectNum" value="0">
+                                <br>
+                                <input type="button" name="calcButton" value="Calculate" onclick="$('#perfRes').html(perfectNumbers($('#perfectNum').val()) ? 'Entered number is prefect.':'Entered number is not perfect.')">
+                                <input type="button" value="Generate Between 10,000" onclick="$('#firstperfRes').html(perfectNumberRun())">
+                                <hr>
+                                <h4 id="perfRes">Results will appear here.</h4>
+                                <h4 id="firstperfRes"></h4>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush:js">
+    function perfectNumbers(x) {
+        var divArr = new Array();
+        for (var i = 1; i <= x / 2; i++) {
+            if (x % i == 0) {
+                divArr.push(i);
+            }
+        }
+        var sum = 0;
+        for (var i = 0; i < divArr.length; i++) {
+            sum += divArr[i];
+        }
+        if (sum == x) {
+            return true;
+        }
+        else
+            return false;
+    }
+    function perfectNumberRun() {
+        var perNums = new Array();
+        for (var i = 1; i <= 10000; i++) {
+            if (perfectNumbers(i))
+                perNums.push(i);
+        }
+        return perNums;
+    }
+        </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item hard masonry-brick" style="position: absolute; top: 606px; left: 0px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Happy Numbers</h2><!--Project Title -->
+                    <p>hard</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                Happy numbers are those that can be reduced to
+
+                                1 through the following process – Start with any positive integer, replace the number with the sum of the
+
+                                squares of its digits, and repeat until the result is 1 or the result is an endless loop.
+                            </p>
+                            <br>
+                            <form>
+                                Please type a number:
+                                <input type="number" style="color: black;" id="happyNum" value="0">
+                                <br>
+                                <input type="button" name="calcButton" value="Calculate" onclick="$('#happyRes').html(happyNums($('#happyNum').val()) ? 'Entered number is a happy number.' : 'Entered number is not a happy number.')">
+                                <hr>
+                                <h4 id="happyRes">Results will appear here.</h4>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush:js">
+    function happyNums(n) {
+        var m, digit;
+        var cycle = [];
+        while (n != 1 &&
+                    cycle[n] !== true) {
+            cycle[n] = true;
+            m = 0;
+            while (n > 0) {
+                digit = n % 10;
+                m += digit * digit;
+                n = (n - digit) / 10;
+            }
+            n = m;
+        }
+        return (n == 1);
+    }
+        </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item hard masonry-brick" style="position: absolute; top: 606px; left: 395px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Armstrong Numbers</h2><!--Project Title -->
+                    <p>hard</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                An Armstrong number is an integer such that
+
+                                the sum of the cubes of its digits is equal to the number itself.
+                            </p>
+                            <br>
+                            <form>
+                                Please type a number:
+                                <input type="button" name="calcButton" value="Find 3-Digit Armstrongs" onclick="$('#armstrongRes').html(armstrong())">
+                                <hr>
+                                <h4 id="armstrongRes">Results will appear here.</h4>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush:js">
+    function armstrong() {
+        var armArr = new Array();
+        var b, c;
+        for (var i = 100; i < 1000; i++) {
+            var ti = i, c = 0;
+            while (ti > 0) {
+                b = ti % 10;
+                c = c + (b * b * b);
+                ti = parseInt(ti / 10);
+            }
+            if (c == i) {
+                armArr.push(i);
+            }
+        }
+        return armArr;
+    }
+        </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item fileio masonry-brick" style="position: absolute; top: 606px; left: 790px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Longest Word</h2><!--Project Title -->
+                    <p>File I/O</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                Finds and displays the longest word in a selected text file.
+                            </p>
+                            <br>
+                            <form>
+                                <input type="file" id="file">
+                                <br>
+                                <input type="button" name="calcButton" value="Find Longest Word" onclick="longestWord()">
+                                <hr />
+                                <h4 id="longestRes"></h4>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush:js">
+        function longestWord() {
+            var f = $("#file")[0];
+            var r = new FileReader();
+            r.onload = function (e) {
+                $('#longestRes').html
+                    (findLongestWord(r.result));
+            }
+            r.readAsText(f.files[0]);
+        }
+        function findLongestWord(str) {
+            var words = str.match(/\w[a-zA-Z'-]{0,}/gi);
+            var longest = words[0];
+            for (var x = 1; x < words.length; x++) {
+                if (longest.length < words[x].length) {
+                    longest = words[x];
+                }
+            }
+            return longest;
+        }
+        </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item fileio masonry-brick" style="position: absolute; top: 606px; left: 0px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Filter Words</h2><!--Project Title -->
+                    <p>File I/O</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                finds and displays all words that are longer than a given integer i
+                                in a selected text file.
+                            </p>
+                            <br>
+                            <form>
+                                <input type="file" id="filterFile">
+                                <input type="number" style="color: black;" id="filterNum" value="0">
+                                <br>
+                                <input type="button" name="calcButton" value="Filter Words" onclick="filterWords()">
+                                <hr>
+                                <h4 id="filterRes"></h4>
+                                <textarea id="filterDis" style="margin: 0px; height: 137px; width: 300px;color: black"></textarea>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush: js">
+        function filterWords() {
+            var f = $("#filterFile")[0];
+            var r = new FileReader();
+            r.onload = function (e) {
+                $('#filterRes').html
+                    (filterLongWords($('#filterNum').val()
+                                        , r.result));
+            }
+            r.readAsText(f.files[0]);
+        }
+        function filterLongWords(num, str) {
+            var words = str.toLowerCase()
+                            .match(/\w[a-zA-Z'-]{0,}/gi);
+            var arr = [];
+            var count = 0;
+            for (var n = 0; n < words.length; n++) {
+                if (words[n].length > num) {
+                    count++;
+                    arr.push(words[n]);
+                }
+            }
+            arr = uniq(arr).sort().join(', ');
+            $('#filterDis').html(arr)
+            return count + " words longer than " + num;
+        }
+        </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item fileio masonry-brick" style="position: absolute; top: 606px; left: 395px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Word Frequency</h2><!--Project Title -->
+                    <p>File I/O</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                displays a frequency listing of the words contained in a selected text
+
+                                file. Order the words by frequency.
+                            </p>
+                            <br>
+                            <form>
+                                <input type="file" id="freqFile">
+                                <br>
+                                <input type="button" name="calcButton" value="Find Frequency" onclick="wordFreq()">
+                                <hr>
+                                <textarea id="freqDis" style="margin: 0px; height: 137px; width: 300px;color: black"></textarea>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush:js">
+        function wordFreq() {
+            var f = $("#freqFile")[0];
+            var r = new FileReader();
+            r.onload = function (e) {
+                $("#freqDis").html
+                    (wordFreqFinder(r.result));
+            }
+            r.readAsText(f.files[0]);
+        }
+        function wordFreqFinder(str) {
+            var words = str.toLowerCase()
+                            .match(/\w[a-z]{0,}/gi);  
+            var hash = {};
+            for (var n in words) {            
+                if (hash[words[n]] == null) {  
+                    (hash[words[n]]) = 1      
+                } else {
+                    (hash[words[n]])++         
+                }
+            };
+            var wordsArranged = [];
+            for (var n in hash) {              
+                wordsArranged.push([n, hash[n]]);
+            };
+            wordsArranged.sort(function(a, b) { 
+                return b[1] - a[1]
+            });
+            var result = "Freq List: ";  
+            for (var n in wordsArranged) {
+                result = result + "\n" + wordsArranged[n];
+            };
+            return result;
+        }
+        </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item fileio masonry-brick" style="position: absolute; top: 606px; left: 790px;">
+
+                <img class="img-responsive project-image" src="~/Template/assets/images/thumb.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">Find Word</h2><!--Project Title -->
+                    <p>File I/O</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description" data-images="Template/assets/images/thumb.png">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>Description:</h3>
+                            <p>
+                                returns the total number of occurrences of a given word in a selected
+
+                                text file
+                            </p>
+                            <br>
+                            <form>
+                                <input type="number" style="color: black;" id="findString" value="" placeholder="Please enter a word.">
+                                <input type="file" id="findFile">
+                                <br>
+                                <input type="button" name="calcButton" value="Find Frequency" onclick="findWord($('#findString').val())">
+                                <hr />
+                                <h4 id="findRes"></h4>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <pre class="brush:js">
+function findWord(search) {
+    var f = $("#findFile")[0];
+    var r = new FileReader();
+    r.onload = function (e) {
+        $("#findRes").html(searchWord
+                           (search, r.result));
+    }
+    r.readAsText(f.files[0]);
+}
+function searchWord(search, str) {
+    var words = str.toLowerCase()
+                    .match(/\w[a-z-]{0,}/gi);
+    var searchS = search.toString()
+                        .toLowerCase();
+    var count = 0;
+    for (var n = 0; n < words.length; n++) {
+        if (searchS == words[n])
+            count++;
+    }
+    return search + " appears " + count + " times."
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+            </article><!--End Project Item -->
+
+        </div><!-- End projects -->
+
+    </div><!-- Project Internal Structure container -->
+
+</section> <!-- Javascript -->
+
+<section id="contact" class="add-padding">
+
+    <div class="container text-center">
+
+        <div class="row">
+
+            <div class="col-sm-6 col-md-5 text-right scrollimation fade-up d1 in">
+
+                <h1 class="big-text">Contact Me</h1>
+
+                <p class="lead">I am available for freelance. Can't wait for the next exciting project! Could be yours?</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.</p>
+
             </div>
+
+            <!--=== Contact Form ===-->
+
+            <form id="contact-form" class="col-sm-6 col-md-offset-1 scrollimation fade-left d3 in" action="@Url.Action("Index", "Home")" method="post" name="contactMe">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label class="control-label" for="contact-name">Name</label>
+                    <div class="controls">
+                        <input id="contact-name" name="Name" placeholder="Your name" class="form-control requiredField" type="text" data-error-empty="How should I call you?">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div><!-- End name input -->
+
+                <div class="form-group">
+                    <label class="control-label" for="contact-mail">Email</label>
+                    <div class=" controls">
+                        <input id="contact-mail" name="Email" placeholder="Your email" class="form-control requiredField" type="email" data-error-empty="I need your email address" data-error-invalid="Is this an email address?">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                </div><!-- End email input -->
+
+                <div class="form-group">
+                    <label class="control-label" for="contact-subject">Subject</label>
+                    <div class="controls">
+                        <input id="contact-subject" name="Subject" placeholder="Email subject" class="form-control requiredField" type="text" data-error-empty="No subject given.">
+                        <i class="fa fa-server"></i>
+                    </div>
+                </div><!-- End name input -->
+
+                <div class="form-group">
+                    <label class="control-label" for="contact-message">Message</label>
+                    <div class="controls">
+                        <textarea style="color: black"id="contact-message" name="Message" placeholder="Your message" class="form-control requiredField" rows="6" data-error-empty="Do you want to say something?"></textarea>
+                        <i class="fa fa-comment"></i>
+                    </div>
+                </div><!-- End textarea style="color: black"-->
+
+                <p><button name="submit" type="submit" class="btn btn-color2 btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-paper-plane"></i>Send Message</button></p>
+                <input type="hidden" name="submitted" id="submitted" value="true">
+
+            </form><!-- End contact-form -->
+
         </div>
+
     </div>
+
 </section>
+
+<footer id="main-footer" class="add-padding bg-color3 border-top-color2">
+
+    <div class="container">
+
+        <ul class="social-links text-center">
+            <li><a target="_blank" href="http://coderbyte.com/CodingArea/Profile/?user=Veidron" style="text-decoration: none"><i class="fa-fw">cb</i></a></li>
+            <li><a target="_blank" href="https://github.com/Veidron/"><i class="fa fa-github fa-fw"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/profile/view?id=349268042"><i class="fa fa-linkedin fa-fw"></i></a></li>
+        </ul>
+    </div>
+
+</footer>
+
+<script src="~/Scripts/exercises.js"></script>
+<script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
+<script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+</script>

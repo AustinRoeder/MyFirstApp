@@ -96,6 +96,15 @@ h1, h2, h3, h4, h5, h6 {
 	color: #ffffff;
 }
 
+.navbar-collapse .seperator {
+    background-image: url('../img/navsep.png');
+}
+
+.navbar-collapse .wrap {
+    background-image: url('../img/navbarbg.png');
+    opacity: .8;
+}
+
 /* ==========================================================================
    Wrap Sections
    ========================================================================== */
@@ -233,6 +242,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    Custom Classes
    ========================================================================== */
+
 .selectable{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -257,6 +267,7 @@ h3{
 
 .option:hover{
     color:black;
+    text-decoration:none;
 }
 .option2:hover{
     transform:scale(1.3);

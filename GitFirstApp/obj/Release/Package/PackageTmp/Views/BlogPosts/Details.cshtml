@@ -3,11 +3,11 @@
 @{
     ViewBag.Title = "Details";
 }
-<div class="container">
-    <div class="row">
+<div class="container" style="padding-top: 69px;">
+    <div class="row well">
 
         <!-- Blog Post Content Column -->
-        <div class="col-md-8 col-xs-12">
+        <div class="col-xs-8 col-xs-12">
             <!-- Blog Post -->
             <!-- Title -->
             <h1>
@@ -25,12 +25,12 @@
             <!-- Date/Time -->
             <p>
                 <span class="glyphicon glyphicon-time"></span>
-                @Html.DisplayFor(model => model.Created)
+                @Html.DisplayFor(model => model.Created.DateTime)
             </p>
 
 
             <!-- Preview Image -->
-            @if(Model.MediaURL != null)
+            @if (Model.MediaURL != null)
             {
                 <div class="centered">
                     <img class="img-responsive" src="@Model.MediaURL" alt="">
@@ -73,75 +73,60 @@
                 <div class="col-xs-1">
                     @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                     {
-                        <form method="get" action="@Url.Action("Edit", "Comments")">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@c.ID" />
-                            <input type="hidden" name="Body" value="@c.Body" />
-                            <input type="hidden" name="PostID" value="@c.PostID" />
-                            <button type="submit" class="glyphicon glyphicon-pencil" style="text-decoration: none; color: black;"></button>
-                        </form>
-                        <br />
-                        <form method="post" action="@Url.Action("Delete", "Comments")">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="id" value="@c.ID" />
-                            <input type="hidden" name="PostID" value="@c.PostID" />
-                            <button type="submit" class="glyphicon glyphicon-trash" style="text-decoration: none; color: black;"></button>
-                        </form>
-                        @*<a class="glyphicon glyphicon-pencil edit-a" href="#" data-toggle="modal"
-                               data-target="#editModal" data-id="@c.ID" data-body="@c.Body" style="text-decoration:none;color:black;"></a>
-                            <a class="glyphicon glyphicon-trash del-a" href="#" data-toggle="modal"
-                               data-target="#deleteModal" data-id="@c.ID" style="text-decoration:none;color:black;"></a>*@
+                        <a class="glyphicon glyphicon-pencil edit-a" href="#" data-toggle="modal"
+                           data-target="#editModal" data-id="@c.ID" data-body="@c.Body" style="text-decoration:none;color:black;"></a>
+                        <a class="glyphicon glyphicon-trash del-a" href="#" data-toggle="modal"
+                           data-target="#deleteModal" data-id="@c.ID" style="text-decoration:none;color:black;"></a>
                     }
                 </div>
             }
-            @*<!--Deletion Confirmation Modal-->
-                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog" style="width: 30%;">
-                        <div class="modal-content">
-                            <div class="modal-header" style="text-align:center">
-                                <h2 class="modal-title" id="modalLabel">Confirm Deletion</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row" style="text-align:center">
-                                    <h4>Are you sure?</h4>
-                                    <form method="post" action="@Url.Action("Delete", "Comments")">
-                                        @Html.AntiForgeryToken()
-                                        <input  id="Del-Id" type="hidden" name="id" value="" />
-                                        <button type="submit">Yes</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">No</button>
-                                    </form>
-                                </div>
+            <!--Deletion Confirmation Modal-->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                 aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                <div class="modal-dialog" style="width: 30%;">
+                    <div class="modal-content">
+                        <div class="modal-header" style="text-align:center">
+                            <h2 class="modal-title" id="modalLabel">Confirm Deletion</h2>
+                        </div>
+                        <div class="modal-body col-xs-12">
+                            <div class="row" style="text-align:center">
+                                <h4>Are you sure?</h4>
+                                <form method="post" action="@Url.Action("Delete", "Comments")">
+                                    @Html.AntiForgeryToken()
+                                    <input id="Del-Id" type="hidden" name="id" value="" />
+                                    <button type="submit">Yes</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">No</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--Edit Screen Modal-->
-                <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
-                     aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
-                    <div class="modal-dialog" style="width: 30%;">
-                        <div class="modal-content">
-                            <div class="modal-header" style="text-align:center">
-                                <h2 class="modal-title" id="modalLabel">Edit Comment</h2>
-                            </div>
-                            <div class="modal-body col-xs-12">
-                                <div class="row" style="text-align:center">
-                                    <form method="post" action="@Url.Action("Edit", "Comments")">
-                                        @Html.AntiForgeryToken()
-                                        <input type="hidden" name="PostID" value="@Model.ID" />
-                                        <input id="Edit-Id" type="hidden" name="id" value="" />
-                                        <textarea id="body" name="Body"></textarea>
-                                        <button type="submit">Confirm Edit</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">Cancel</button>
-                                    </form>
-                                </div>
+            </div>
+            <!--Edit Screen Modal-->
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                 aria-labelledby="modalLabel" aria-hidden="true" style="display: none">
+                <div class="modal-dialog" style="width: 30%;">
+                    <div class="modal-content">
+                        <div class="modal-header" style="text-align:center">
+                            <h2 class="modal-title" id="modalLabel">Edit Comment</h2>
+                        </div>
+                        <div class="modal-body col-xs-12">
+                            <div class="row" style="text-align:center">
+                                <form method="post" action="@Url.Action("Edit", "Comments")">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="PostID" value="@Model.ID" />
+                                    <input id="Edit-Id" type="hidden" name="id" value="" />
+                                    <textarea id="body" name="Body"></textarea>
+                                    <button type="submit">Confirm Edit</button><button type="button" onclick="location.href='@Url.Action("Details", "BlogPosts", new { id = Model.ID })'">Cancel</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>*@
-
+                </div>
+            </div>
         </div>
         <hr>
         <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
+        <div class="col-xs-4">
 
             <!-- Blog Search Well -->
             <div class="well">
@@ -199,13 +184,8 @@
         <!-- /.row -->
     </footer>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
 @section scripts{
     <!--Modal Filler Script-->
-    @*
         <script>
            $(function () {
                $('.del-a').click(function () {
@@ -216,14 +196,5 @@
                    $('#body').text($(this).data('body'));
                })
            });
-        </script>*@
-
-    <!--Search Script-->
-    <script>
-        $(function () {
-            function SearchBlog(phrase) {
-
-            }
-        });
-    </script>
+        </script>
 }
